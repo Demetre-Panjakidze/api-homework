@@ -1,22 +1,35 @@
-.container {
-  margin: 10px;
-  display: flex;
-  gap: 5px;
+main {
+  margin: 20px;
 
-  button {
-    cursor: pointer;
+  .container {
+    display: flex;
+    gap: 5px;
+
+    button {
+      cursor: pointer;
+    }
   }
-}
 
-.results {
-  margin: 10px;
+  .results {
+    margin: 20px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 
-  .oneResult {
-    border: 1px solid black;
-    padding: 5px;
+    .oneResult {
+      border: 1px solid black;
+      padding: 15px;
+      display: flex;
+      gap: 20px;
+      cursor: pointer;
 
-    img {
-      width: 100px;
+      img {
+        width: 150px;
+      }
+
+      &:is(:hover, :active) {
+        background-color: rgb(245, 242, 242);
+      }
     }
   }
 }
