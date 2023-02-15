@@ -9,6 +9,9 @@ main {
     }
 
     .rightInfo {
+      display: flex;
+      gap: 10px;
+
       .overallRating {
         padding: 5px;
 
@@ -27,10 +30,43 @@ main {
           background-color: rgb(245, 242, 242);
         }
       }
+
+      .myRating {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+
+        .bottomRating {
+          display: flex;
+          justify-content: center;
+          gap: 5px;
+          margin: 6px 0 0;
+
+          img {
+            width: 30px;
+            filter: invert(76%) sepia(62%) saturate(5651%) hue-rotate(192deg)
+              brightness(101%) contrast(87%);
+          }
+
+          p {
+            font-size: 20px;
+            color: #5799ef;
+            font-weight: 900;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(245, 242, 242);
+        }
+      }
     }
   }
 
+  hr {
+    margin-block: 10px;
+  }
+
   .content {
-    margin: 10px 0 0;
   }
 }

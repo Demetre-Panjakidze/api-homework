@@ -43,7 +43,7 @@ interface movieInDetails {
         <div class="overallRating">
           <p [style]="{ textTransform: 'Uppercase' }">imdb rating</p>
           <div class="overallInfo">
-            <img src="assets/star.svg" alt="" />
+            <img src="assets/star.svg" alt="yellow star icon" />
             <div class="overallRight">
               <p>{{ info.imdbRating }} <span>/10</span></p>
               <p [ngStyle]="{ fontSize: '13px' }">
@@ -52,10 +52,15 @@ interface movieInDetails {
             </div>
           </div>
         </div>
-        <div class="myRating"></div>
+        <div class="myRating">
+          <p [style]="{ textTransform: 'Uppercase' }">your rating</p>
+          <div class="bottomRating">
+            <img src="assets/blue-star.svg" alt="blue star icon" />
+            <p>Rate</p>
+          </div>
+        </div>
       </div>
     </div>
-
     <hr />
     <div class="content">
       <img [src]="info.Poster" alt="Poster of searched movie or TV show" />
