@@ -1,7 +1,36 @@
 main {
   margin: 10px;
 
-  button {
-    cursor: pointer;
+  .info {
+    display: flex;
+    justify-content: space-between;
+
+    .leftInfo {
+    }
+
+    .rightInfo {
+      .overallRating {
+        padding: 5px;
+
+        .overallInfo {
+          display: flex;
+          justify-content: space-between;
+
+          img {
+            width: 30px;
+            filter: invert(76%) sepia(89%) saturate(757%) hue-rotate(348deg)
+              brightness(102%) contrast(92%);
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(245, 242, 242);
+        }
+      }
+    }
+  }
+
+  .content {
+    margin: 10px 0 0;
   }
 }

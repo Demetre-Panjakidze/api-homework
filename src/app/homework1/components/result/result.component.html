@@ -1,3 +1,64 @@
+<!-- 
+interface movieInDetails {
+  Title: string;
+  Year: string;
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Poster: string;
+  Ratings: {
+    Source: string;
+    Value: string;
+  }[];
+  Metascore: string;
+  imdbRating: string;
+  imdbVotes: string;
+  imdbID: string;
+  Type: string;
+  totalSeasons: string;
+  Response: string;
+}
+
+ -->
 <ng-container *ngIf="searchResult$ | async as info">
-  <div>{{ info.Title }}</div>
+  <main>
+    <div class="info">
+      <div class="leftInfo">
+        <h1 class="title">{{ info.Title }}</h1>
+        <p>
+          <span>{{ info.Type | titlecase }}</span> -
+          <span>{{ info.Year }}</span> - <span>{{ info.Rated }}</span> -
+          <span>{{ info.Runtime }}</span>
+        </p>
+      </div>
+      <div class="rightInfo">
+        <div class="overallRating">
+          <p [style]="{ textTransform: 'Uppercase' }">imdb rating</p>
+          <div class="overallInfo">
+            <img src="assets/star.svg" alt="" />
+            <div class="overallRight">
+              <p>{{ info.imdbRating }} <span>/10</span></p>
+              <p [ngStyle]="{ fontSize: '13px' }">
+                {{ info.imdbVotes | bigNumberPipe }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="myRating"></div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="content">
+      <img [src]="info.Poster" alt="Poster of searched movie or TV show" />
+    </div>
+  </main>
 </ng-container>

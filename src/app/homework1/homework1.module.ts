@@ -7,9 +7,15 @@ import { ResultComponent } from './components/result/result.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieApiService } from './movie-api.service';
 import { FormsModule } from '@angular/forms';
+import { BigNumberPipe } from 'src/app/pipes/bigNumber.pipe';
 
 @NgModule({
-  declarations: [Homework1Component, InputComponent, ResultComponent],
+  declarations: [
+    Homework1Component,
+    InputComponent,
+    ResultComponent,
+    BigNumberPipe,
+  ],
   imports: [
     CommonModule,
     Homework1RoutingModule,

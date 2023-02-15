@@ -14,6 +14,5 @@ export class ResultComponent {
 
   ngOnInit() {
     this.searchResult$ = this.api.getMovieDetails(this.api.selectedMovieId);
-    this.searchResult$.subscribe(console.log);
   }
 }
