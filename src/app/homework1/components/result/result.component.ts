@@ -6,9 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent {
-  @Input() movieID: number | string | undefined;
-
-  ngOnInit() {
-    console.log(this.movieID);
-  }
+  ngOnInit() {}
 }

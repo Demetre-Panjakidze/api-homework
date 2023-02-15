@@ -8,22 +8,20 @@ import { movieInDetails, result } from '../../movie.model';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Output() movieID = new EventEmitter<any>();
   searchResult$: Observable<result> | undefined;
   searched: boolean = false;
   content: string = '';
+  movieID: string = '';
   constructor(private api: MovieApiService) {}
 
   search() {
     this.searchResult$ = this.api.movieSearch(this.content);
-    this.searchResult$.subscribe((info) => {
-      if (info && info.Search && info.Search.length > 0) {
-        info.Search.forEach((movie) => {
-          this.movieID.emit(movie.imdbID);
-        });
-      }
-    });
     this.searched = true;
     this.content = '';
+  }
+
+  chosenMovie(movie: any) {
+    this.movieID = movie.imdbID;
+    console.log(this.movieID);
   }
 }

@@ -11,6 +11,7 @@
           *ngFor="let movie of result.Search"
           routerLink="result"
           class="oneResult"
+          (click)="chosenMovie(movie)"
         >
           <img [src]="movie.Poster" alt="Poster of searched movie or TV show" />
           <div class="title-year">
