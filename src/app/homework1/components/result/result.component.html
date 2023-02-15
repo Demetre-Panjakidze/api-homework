@@ -64,6 +64,18 @@ interface movieInDetails {
     <hr />
     <div class="content">
       <img [src]="info.Poster" alt="Poster of searched movie or TV show" />
+      <div class="details">
+        <ul class="genreUL">
+          <li *ngFor="let genre of genreList">{{ genre }}</li>
+        </ul>
+        <p class="about">{{ info.Plot }}</p>
+        <hr />
+        <h4>Creators</h4>
+        <p class="writersList">{{ info.Writer }}</p>
+        <hr />
+        <h4>Stars</h4>
+        <p class="actorsList">{{ info.Actors }}</p>
+      </div>
     </div>
   </main>
 </ng-container>

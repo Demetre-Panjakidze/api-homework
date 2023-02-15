@@ -11,8 +11,15 @@ import { movieInDetails } from '../../movie.model';
 export class ResultComponent {
   searchResult$: Observable<movieInDetails> | undefined;
   constructor(private api: MovieApiService) {}
-
+  genreList: string[] = [];
+  creatorsList: string[] = [];
   ngOnInit() {
     this.searchResult$ = this.api.getMovieDetails(this.api.selectedMovieId);
+    this.searchResult$.subscribe((x) => {
+      const genres = x.Genre.split(', ');
+      genres.forEach((genre) => {
+        this.genreList.push(genre);
+      });
+    });
   }
 }

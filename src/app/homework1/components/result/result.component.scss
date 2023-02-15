@@ -68,5 +68,30 @@ main {
   }
 
   .content {
+    display: flex;
+    gap: 15px;
+
+    .details {
+      .genreUL {
+        display: flex;
+        gap: 5px;
+        padding: 0;
+
+        li {
+          list-style: none;
+          border: 1px solid black;
+          border-radius: 20px;
+          padding: 5px 10px;
+        }
+      }
+
+      .about {
+        margin: 10px 0 0;
+      }
+
+      .writersList {
+        display: flex;
+      }
+    }
   }
 }
