@@ -1,4 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MovieApiService } from '../../movie-api.service';
+import { movieInDetails } from '../../movie.model';
 
 @Component({
   selector: 'app-result',
@@ -6,5 +9,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./result.component.scss'],
 })
 export class ResultComponent {
-  ngOnInit() {}
+  searchResult$: Observable<movieInDetails> | undefined;
+  constructor(private api: MovieApiService) {}
+
+  ngOnInit() {
+    this.searchResult$ = this.api.getMovieDetails(this.api.selectedMovieId);
+    this.searchResult$.subscribe(console.log);
+  }
 }

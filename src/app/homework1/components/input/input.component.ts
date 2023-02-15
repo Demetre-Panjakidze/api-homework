@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieApiService } from '../../movie-api.service';
-import { movieInDetails, result } from '../../movie.model';
+import { movieInDetails, movieInOverall, result } from '../../movie.model';
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -12,6 +12,7 @@ export class InputComponent {
   searched: boolean = false;
   content: string = '';
   movieID: string = '';
+
   constructor(private api: MovieApiService) {}
 
   search() {
@@ -20,8 +21,7 @@ export class InputComponent {
     this.content = '';
   }
 
-  chosenMovie(movie: any) {
-    this.movieID = movie.imdbID;
-    console.log(this.movieID);
+  chosenMovie(movie: movieInOverall) {
+    this.api.selectedMovieId = movie.imdbID;
   }
 }

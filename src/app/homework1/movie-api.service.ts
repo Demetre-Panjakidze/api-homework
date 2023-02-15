@@ -11,12 +11,13 @@ const API_BASE = 'https://www.omdbapi.com/?apikey=c10494d2';
 })
 export class MovieApiService {
   constructor(private http: HttpClient) {}
+  selectedMovieId: string = '';
 
   movieSearch(content: string): Observable<result> {
     return this.http.get<result>(`${API_BASE}&s=${content}`);
   }
 
   getMovieDetails(movieID: string): Observable<movieInDetails> {
-    return this.http.get<movieInDetails>(`${API_BASE}i=tt${movieID}`);
+    return this.http.get<movieInDetails>(`${API_BASE}&i=${movieID}`);
   }
 }

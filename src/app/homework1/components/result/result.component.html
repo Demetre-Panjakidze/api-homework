@@ -1,1 +1,3 @@
-<main></main>
+<ng-container *ngIf="searchResult$ | async as info">
+  <div>{{ info.Title }}</div>
+</ng-container>
