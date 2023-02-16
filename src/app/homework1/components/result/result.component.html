@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div class="myRating">
+        <div class="myRating" (click)="rating()">
           <p [style]="{ textTransform: 'Uppercase' }">your rating</p>
           <div class="bottomRating">
             <img src="assets/blue-star.svg" alt="blue star icon" />
@@ -64,4 +64,5 @@
       </div>
     </div>
   </main>
+  <app-rate-window *ngIf="voteClicked"></app-rate-window>
 </ng-container>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
+import { RateWindowComponent } from './components/rate-window/rate-window.component';
 import { ResultComponent } from './components/result/result.component';
 import { Homework1Component } from './homework1.component';
 

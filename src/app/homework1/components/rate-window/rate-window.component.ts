@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { MovieApiService } from '../../movie-api.service';
 
 @Component({
   selector: 'app-rate-window',
   templateUrl: './rate-window.component.html',
   styleUrls: ['./rate-window.component.scss'],
 })
-export class RateWindowComponent {
+export class RateWindowComponent implements OnInit, AfterViewInit {
+  clickedInside = false;
   buttonColor: string = 'rgba(255, 255, 255, 0.1)';
   textColor: string = 'rgba(255, 255, 255, 0.5)';
   starColor: string =
@@ -17,9 +25,13 @@ export class RateWindowComponent {
   starPosition: number = -47;
   clicked: boolean = false;
 
+  constructor(private api: MovieApiService) {}
+
   ngAfterViewInit() {
     document.body.style.overflow = 'hidden';
   }
+
+  ngOnInit() {}
 
   rating(rate: number) {
     this.clicked = true;

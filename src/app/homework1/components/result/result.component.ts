@@ -13,6 +13,7 @@ export class ResultComponent {
   genreList: string[] = [];
   countrySearchResult$: Observable<any> | undefined;
   seperateObj: any[] = [];
+  voteClicked: boolean = false;
 
   constructor(private api: MovieApiService) {}
 
@@ -49,5 +50,9 @@ export class ResultComponent {
     this.countrySearchResult$.subscribe((x: any) => {
       this.seperateObj = x;
     });
+  }
+
+  rating() {
+    this.voteClicked = true;
   }
 }
