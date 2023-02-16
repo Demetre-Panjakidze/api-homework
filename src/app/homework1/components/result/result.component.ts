@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { forkJoin, Observable, of, switchMap, map } from 'rxjs';
 import { MovieApiService } from '../../movie-api.service';
-import { CountryDetails, movieInDetails } from '../../movie.model';
+import {
+  CountryDetails,
+  movieInDetails,
+  CountryResponse,
+} from '../../movie.model';
 
 @Component({
   selector: 'app-result',
@@ -14,6 +18,7 @@ export class ResultComponent {
   genreList: string[] = [];
   countryList: string[] = [];
   obj$: any;
+  blaObj: CountryResponse[] = [];
 
   constructor(private api: MovieApiService) {}
   public fetchFlagsAndCurrencies(country: string) {
@@ -39,7 +44,12 @@ export class ResultComponent {
         return obj;
       })
     );
-    this.obj$.subscribe(console.log);
+    this.obj$.subscribe((x: any) => {
+      x.forEach((y: any) => {
+        this.blaObj.push(y);
+      });
+      console.log(this.blaObj);
+    });
     this.searchResult$.subscribe((x) => {
       const genres = x.Genre.split(', ');
       genres.forEach((genre) => {
