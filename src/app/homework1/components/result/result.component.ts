@@ -13,16 +13,17 @@ export class ResultComponent {
   countrySearchResult$: Observable<CountryDetails> | undefined;
   genreList: string[] = [];
   countryList: string[] = [];
-  countryCodesList: string[] = [];
 
   constructor(private api: MovieApiService) {}
   private fetchFlagsAndCurrencies(country: string) {
     return this.api.getCountyDetails(country).pipe(
-      map((x: any) =>
-        x.map((x: any) => {
-          return { flags: x.flags, currencies: x.currencies };
-        })
-      )
+      map((x: any) => {
+        return {
+          country: country,
+          flags: x[0].flags,
+          currencies: x[0].currencies,
+        };
+      })
     );
   }
 
@@ -32,26 +33,19 @@ export class ResultComponent {
       .getMovieDetails(this.api.selectedMovieId)
       .pipe(
         switchMap((movie) => {
-          const title = movie.Title;
           const countries = movie.Country?.split(', ').map((country) =>
             this.fetchFlagsAndCurrencies(country)
           );
-          return forkJoin([of({ title }), ...countries]);
+          const obj = forkJoin([...countries]);
+          return obj;
         })
       )
       .subscribe(console.log);
-    // this.searchResult$.subscribe((x) => {
-    // const genres = x.Genre.split(', ');
-    // const countries = x.Country.split(', ');
-    // genres.forEach((genre) => {
-    //   this.genreList.push(genre);
-    // });
-    // countries.forEach((country) => {
-    //   this.api.getCountyDetails(country).subscribe((x) => {
-    //     console.log();
-    //     console.log(typeof x);
-    //   });
-    // });
-    // });
+    this.searchResult$.subscribe((x) => {
+      const genres = x.Genre.split(', ');
+      genres.forEach((genre) => {
+        this.genreList.push(genre);
+      });
+    });
   }
 }
