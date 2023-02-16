@@ -16,7 +16,7 @@ export class ResultComponent {
 
   constructor(private api: MovieApiService) {}
 
-  public fetchFlags(country: string) {
+  public getFlags(country: string) {
     return this.api.getCountyDetails(country).pipe(
       map((x: any) => {
         return {
@@ -32,16 +32,16 @@ export class ResultComponent {
 
     this.countrySearchResult$ = this.searchResult$.pipe(
       switchMap((movie) => {
-        const countries = movie.Country?.split(', ').map((country) =>
-          this.fetchFlags(country)
+        const countries = movie.Country?.split(', ')?.map((country) =>
+          this.getFlags(country)
         );
-        const obj = forkJoin([...countries]);
+        const obj = forkJoin([...(countries ?? [])]);
         return obj;
       })
     );
 
     this.searchResult$
-      .pipe(map((x) => x.Genre.split(', ')))
+      .pipe(map((x) => x?.Genre?.split(', ')))
       .subscribe((genres) => {
         this.genreList = genres;
       });
