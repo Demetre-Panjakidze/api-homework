@@ -26,10 +26,7 @@
     .big-star {
       filter: invert(62%) sepia(24%) saturate(5489%) hue-rotate(190deg)
         brightness(98%) contrast(91%);
-      width: 85px;
-      height: 81px;
       position: absolute;
-      top: -45px;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -63,6 +60,7 @@
     .stars {
       margin-block: 8px 0;
       display: flex;
+      gap: 7px;
 
       button {
         padding: 0;
@@ -74,8 +72,7 @@
         cursor: pointer;
 
         img {
-          width: 32px;
-          width: 32px;
+          max-width: 32px;
         }
       }
     }

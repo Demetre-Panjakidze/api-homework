@@ -1,7 +1,18 @@
 <div class="screen">
   <div class="container">
-    <img src="assets/big-star.svg" alt="big blue star icon" class="big-star" />
-    <span [ngStyle]="{ 'font-size': fontSize }">{{ voteNumber }}</span>
+    <img
+      src="assets/big-star.svg"
+      alt="big blue star icon"
+      class="big-star"
+      [ngStyle]="{
+        width: starWidth + 'px',
+        height: starHeight + 'px',
+        top: starPosition + 'px'
+      }"
+    />
+    <span [ngStyle]="{ 'font-size': fontSize }">{{
+      !clicked ? "?" : voteNumber
+    }}</span>
     <h4>rate this</h4>
     <h1>movie name</h1>
     <div class="stars">
@@ -10,9 +21,9 @@
         (click)="rating(i)"
       >
         <img
-          [src]="starLink"
+          src="assets/big-star.svg"
           alt="voting star icon"
-          [ngStyle]="{ filter: starColor }"
+          [ngStyle]="{ filter: shouldHighlightStar(i) ? starColor : 'none' }"
         />
       </button>
     </div>
