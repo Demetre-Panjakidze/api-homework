@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieApiService } from './movie-api.service';
 import { FormsModule } from '@angular/forms';
 import { BigNumberPipe } from 'src/app/pipes/bigNumber.pipe';
+import { RateWindowComponent } from './components/rate-window/rate-window.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { BigNumberPipe } from 'src/app/pipes/bigNumber.pipe';
     InputComponent,
     ResultComponent,
     BigNumberPipe,
+    RateWindowComponent,
   ],
   imports: [
     CommonModule,

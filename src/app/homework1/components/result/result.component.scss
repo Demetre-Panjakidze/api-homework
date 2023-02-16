@@ -1,6 +1,10 @@
 main {
   margin: 10px;
 
+  button {
+    cursor: pointer;
+  }
+
   .info {
     display: flex;
     justify-content: space-between;
