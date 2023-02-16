@@ -13,9 +13,10 @@ export class ResultComponent {
   countrySearchResult$: Observable<CountryDetails> | undefined;
   genreList: string[] = [];
   countryList: string[] = [];
+  obj$: any;
 
   constructor(private api: MovieApiService) {}
-  private fetchFlagsAndCurrencies(country: string) {
+  public fetchFlagsAndCurrencies(country: string) {
     return this.api.getCountyDetails(country).pipe(
       map((x: any) => {
         return {
@@ -29,18 +30,16 @@ export class ResultComponent {
 
   ngOnInit() {
     this.searchResult$ = this.api.getMovieDetails(this.api.selectedMovieId);
-    this.api
-      .getMovieDetails(this.api.selectedMovieId)
-      .pipe(
-        switchMap((movie) => {
-          const countries = movie.Country?.split(', ').map((country) =>
-            this.fetchFlagsAndCurrencies(country)
-          );
-          const obj = forkJoin([...countries]);
-          return obj;
-        })
-      )
-      .subscribe(console.log);
+    this.obj$ = this.api.getMovieDetails(this.api.selectedMovieId).pipe(
+      switchMap((movie) => {
+        const countries = movie.Country?.split(', ').map((country) =>
+          this.fetchFlagsAndCurrencies(country)
+        );
+        const obj = forkJoin([...countries]);
+        return obj;
+      })
+    );
+    this.obj$.subscribe(console.log);
     this.searchResult$.subscribe((x) => {
       const genres = x.Genre.split(', ');
       genres.forEach((genre) => {

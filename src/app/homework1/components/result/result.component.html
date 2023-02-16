@@ -81,9 +81,13 @@ interface movieInDetails {
         <hr />
         <h4>Filming locations</h4>
         <p class="countryList">{{ info.Country }}</p>
-        <ul>
-          <!-- <li *ngFor="let countryInfo of countryList">{{ country }}</li> -->
-        </ul>
+        <!-- <ng-container *ngIf="obj | async as countryFlag">
+          <ul>
+            <li *ngFor="let innerCountryFlag of countryFlag">
+              {{ innerCountryFlag.country }}
+            </li>
+          </ul>
+        </ng-container> -->
       </div>
     </div>
   </main>
