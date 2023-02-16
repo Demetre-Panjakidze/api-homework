@@ -37,7 +37,3 @@ export interface movieInDetails {
   totalSeasons: string;
   Response: string;
 }
-
-export interface CountryDetails {
-  cca2: string;
-}

@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { forkJoin, Observable, of, switchMap, map } from 'rxjs';
 import { MovieApiService } from '../../movie-api.service';
-import {
-  CountryDetails,
-  movieInDetails,
-  CountryResponse,
-} from '../../movie.model';
+import { movieInDetails } from '../../movie.model';
 
 @Component({
   selector: 'app-result',
@@ -14,20 +10,17 @@ import {
 })
 export class ResultComponent {
   searchResult$: Observable<movieInDetails> | undefined;
-  countrySearchResult$: Observable<CountryDetails> | undefined;
   genreList: string[] = [];
-  countryList: string[] = [];
-  obj$: any;
-  blaObj: CountryResponse[] = [];
+  countrySearchResult$: any;
+  seperateObj: any[] = [];
 
   constructor(private api: MovieApiService) {}
-  public fetchFlagsAndCurrencies(country: string) {
+  public fetchFlags(country: string) {
     return this.api.getCountyDetails(country).pipe(
       map((x: any) => {
         return {
           country: country,
           flags: x[0].flags,
-          currencies: x[0].currencies,
         };
       })
     );
@@ -35,20 +28,21 @@ export class ResultComponent {
 
   ngOnInit() {
     this.searchResult$ = this.api.getMovieDetails(this.api.selectedMovieId);
-    this.obj$ = this.api.getMovieDetails(this.api.selectedMovieId).pipe(
-      switchMap((movie) => {
-        const countries = movie.Country?.split(', ').map((country) =>
-          this.fetchFlagsAndCurrencies(country)
-        );
-        const obj = forkJoin([...countries]);
-        return obj;
-      })
-    );
-    this.obj$.subscribe((x: any) => {
+    this.countrySearchResult$ = this.api
+      .getMovieDetails(this.api.selectedMovieId)
+      .pipe(
+        switchMap((movie) => {
+          const countries = movie.Country?.split(', ').map((country) =>
+            this.fetchFlags(country)
+          );
+          const obj = forkJoin([...countries]);
+          return obj;
+        })
+      );
+    this.countrySearchResult$.subscribe((x: any) => {
       x.forEach((y: any) => {
-        this.blaObj.push(y);
+        this.seperateObj.push(y);
       });
-      console.log(this.blaObj);
     });
     this.searchResult$.subscribe((x) => {
       const genres = x.Genre.split(', ');

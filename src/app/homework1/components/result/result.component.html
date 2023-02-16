@@ -50,10 +50,14 @@
         <p class="languageList">{{ info.Language }}</p>
         <hr />
         <h4>Filming locations</h4>
-        <p class="countryList">{{ info.Country }}</p>
-        <ul>
-          <li *ngFor="let innerCountryFlag of blaObj">
-            {{ innerCountryFlag.flags.png }}
+        <ul class="countryList">
+          <li *ngFor="let innerCountryFlag of seperateObj">
+            <img
+              [src]="innerCountryFlag.flags.svg"
+              [alt]="innerCountryFlag.flags.alt"
+              [ngStyle]="{ width: '50px' }"
+            />
+            <span>{{ innerCountryFlag.country }} </span>
           </li>
         </ul>
       </div>

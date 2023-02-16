@@ -92,6 +92,20 @@ main {
       .writersList {
         display: flex;
       }
+
+      .countryList {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          text-decoration: none;
+        }
+      }
     }
   }
 }
