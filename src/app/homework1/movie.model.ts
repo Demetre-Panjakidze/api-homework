@@ -56,6 +56,10 @@ export interface movieInDetails {
   Response: string;
 }
 
+export interface CountryDetails {
+  cca2: string;
+}
+
 /*
 {
   "Title": "Avatar",

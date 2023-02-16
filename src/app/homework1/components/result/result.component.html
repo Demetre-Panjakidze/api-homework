@@ -75,6 +75,15 @@ interface movieInDetails {
         <hr />
         <h4>Stars</h4>
         <p class="actorsList">{{ info.Actors }}</p>
+        <hr />
+        <h4>Languages</h4>
+        <p class="languageList">{{ info.Language }}</p>
+        <hr />
+        <h4>Filming locations</h4>
+        <p class="countryList">{{ info.Country }}</p>
+        <ul>
+          <li *ngFor="let country of countryList">{{ country }}</li>
+        </ul>
       </div>
     </div>
   </main>

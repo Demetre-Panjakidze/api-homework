@@ -23,5 +23,16 @@ export class InputComponent {
 
   chosenMovie(movie: movieInOverall) {
     this.api.selectedMovieId = movie.imdbID;
+
+    // getMovieInfo() {
+    //   // console.log(this.movieTitle.value);
+    //   this.api.getMovie(this.movieTitle.value).pipe(
+    //     switchMap((movie) => {
+    //       const title = movie.Title;
+    //       const countries = movie.Country.split(', ').map((country) => this.fetchFlagsAndCurrencies(country));
+    //       return forkJoin([...countries, of({title})]);
+    //     })
+    //   ).subscribe(console.log);
+    // }
   }
 }
