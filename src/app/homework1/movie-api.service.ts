@@ -37,4 +37,8 @@ export class MovieApiService {
   saveMyList(movieDetails: movieInDetails) {
     return this.http.post(`${MY_API_BASE}/movies`, movieDetails);
   }
+
+  deleteMovie(id: string) {
+    return this.http.delete(`${MY_API_BASE}/movies/${id}`);
+  }
 }
