@@ -37,3 +37,15 @@ export interface movieInDetails {
   totalSeasons: string;
   Response: string;
 }
+
+export interface ChosenMovies {
+  Poster: string;
+  Title: string;
+  imdbID: string;
+  MyID: string;
+  MyReview: string;
+  Type: string;
+  Year: string;
+  Rated: string;
+  Runtime: string;
+}

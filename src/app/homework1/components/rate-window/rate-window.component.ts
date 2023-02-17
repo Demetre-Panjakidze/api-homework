@@ -8,7 +8,9 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MovieApiService } from '../../movie-api.service';
+import { movieInDetails } from '../../movie.model';
 
 @Component({
   selector: 'app-rate-window',
@@ -17,6 +19,7 @@ import { MovieApiService } from '../../movie-api.service';
 })
 export class RateWindowComponent implements OnInit, AfterViewInit {
   @Input() movieName: string = '';
+  @Input() fullInfo: any;
   @Output() message = new EventEmitter();
   closed: boolean = false;
   buttonColor: string = 'rgba(255, 255, 255, 0.1)';
@@ -69,5 +72,6 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
   voted() {
     this.voteSubmitted = true;
     console.log('clicked. value:', this.voteNumber);
+    this.api.saveMyList(this.fullInfo).subscribe(console.log);
   }
 }

@@ -6,6 +6,7 @@ import { movieInDetails, result } from './movie.model';
 
 const API_BASE = 'https://www.omdbapi.com/?apikey=c10494d2';
 const COUNTY_BASE = 'https://restcountries.com';
+const MY_API_BASE = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +28,13 @@ export class MovieApiService {
     return this.http.get(
       `${COUNTY_BASE}/v3.1/name/${countryName}?fullText=true`
     );
+  }
+
+  getMyList() {
+    return this.http.get(`${MY_API_BASE}/movies`);
+  }
+
+  saveMyList(movieDetails: movieInDetails) {
+    return this.http.post(`${MY_API_BASE}/movies`, movieDetails);
   }
 }

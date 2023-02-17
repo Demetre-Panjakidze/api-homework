@@ -26,9 +26,11 @@
     </section>
     <hr />
     <section class="listOfMovies">
-      <ul>
-        <li>bla</li>
-      </ul>
+      <ng-container *ngIf="favoriteMoviesList$ | async as list">
+        <ul>
+          <li *ngFor="let movie of list">{{ movie.title }}</li>
+        </ul>
+      </ng-container>
     </section>
   </div>
 </main>
