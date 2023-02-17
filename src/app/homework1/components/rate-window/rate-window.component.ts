@@ -68,5 +68,6 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
 
   voted() {
     this.voteSubmitted = true;
+    this.api.setVoteSubmitted(this.voteSubmitted);
   }
 }

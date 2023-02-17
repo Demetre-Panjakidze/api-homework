@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, Observable } from 'rxjs';
 import { Homework1Module } from './homework1.module';
 import { movieInDetails, result } from './movie.model';
 
@@ -11,9 +11,21 @@ const COUNTY_BASE = 'https://restcountries.com';
   providedIn: 'root',
 })
 export class MovieApiService {
-  constructor(private http: HttpClient) {}
   selectedMovieId: string = '';
-  voted: boolean = false;
+  private voteSubmittedSource = new BehaviorSubject<boolean>(false);
+  voteSubmitted$ = this.voteSubmittedSource
+    .asObservable()
+    .pipe(distinctUntilChanged());
+
+  constructor(private http: HttpClient) {}
+
+  setVoteSubmitted(voteSubmitted: boolean) {
+    this.voteSubmittedSource.next(voteSubmitted);
+  }
+
+  getVoteSubmitted() {
+    return this.voteSubmittedSource.value;
+  }
 
   movieSearch(content: string): Observable<result> {
     return this.http.get<result>(`${API_BASE}&s=${content}`);

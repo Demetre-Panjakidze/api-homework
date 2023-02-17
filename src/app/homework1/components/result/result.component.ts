@@ -30,6 +30,11 @@ export class ResultComponent {
   }
 
   ngOnInit() {
+    this.api.voteSubmitted$.subscribe((value) => {
+      this.voted = value;
+      console.log(value);
+    });
+
     this.searchResult$ = this.api.getMovieDetails(this.api.selectedMovieId);
 
     this.countrySearchResult$ = this.searchResult$.pipe(
