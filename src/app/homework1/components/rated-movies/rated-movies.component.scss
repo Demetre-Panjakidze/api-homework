@@ -1,7 +1,77 @@
+button {
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+}
+
 main {
   margin: 10px;
+  display: flex;
+  justify-content: center;
 
-  button {
-    cursor: pointer;
+  .container {
+    width: 1000px;
+    max-width: 1000px;
+    background-color: rgb(232, 223, 223);
+
+    section {
+      padding: 20px;
+    }
+
+    .overallInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        font-size: 28px;
+      }
+
+      .edit-delete {
+        display: flex;
+        gap: 10px;
+
+        .delete,
+        .edit {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+          padding: 10px;
+          cursor: pointer;
+
+          &:is(:hover, :active) {
+            background-color: rgb(216, 205, 205);
+          }
+
+          p {
+            text-transform: uppercase;
+          }
+
+          img {
+            width: 33px;
+            height: 30px;
+          }
+        }
+
+        .delete {
+          img {
+            filter: invert(22%) sepia(96%) saturate(7395%) hue-rotate(358deg)
+              brightness(121%) contrast(113%);
+          }
+
+          p {
+            color: #f00;
+          }
+        }
+
+        .edit {
+        }
+      }
+    }
+
+    .listInfo {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
