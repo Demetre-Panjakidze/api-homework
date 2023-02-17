@@ -29,6 +29,7 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
   starHeight: number = 81;
   starPosition: number = -47;
   clicked: boolean = false;
+  voteSubmitted: boolean = false;
 
   constructor(private api: MovieApiService) {}
 
@@ -63,5 +64,9 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
   closeFn() {
     this.closed = true;
     this.message.emit(this.closed);
+  }
+
+  voted() {
+    this.voteSubmitted = true;
   }
 }

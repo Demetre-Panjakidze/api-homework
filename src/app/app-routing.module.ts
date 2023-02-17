@@ -8,7 +8,7 @@ const routes: Routes = [
     component: MenuComponent,
   },
   {
-    path: 'homework1',
+    path: 'search',
     loadChildren: () =>
       import('./homework1/homework1.module').then((n) => n.Homework1Module),
   },

@@ -14,6 +14,7 @@ export class ResultComponent {
   countrySearchResult$: Observable<any> | undefined;
   seperateObj: any[] = [];
   voteClicked: boolean = false;
+  voted: boolean = false;
 
   constructor(private api: MovieApiService) {}
 

@@ -13,6 +13,7 @@ const COUNTY_BASE = 'https://restcountries.com';
 export class MovieApiService {
   constructor(private http: HttpClient) {}
   selectedMovieId: string = '';
+  voted: boolean = false;
 
   movieSearch(content: string): Observable<result> {
     return this.http.get<result>(`${API_BASE}&s=${content}`);

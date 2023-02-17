@@ -1,12 +1,21 @@
 main {
-  margin: 20px;
+  margin: 10px;
+
+  button {
+    cursor: pointer;
+    margin: 0 0 10px;
+  }
+
+  .votesBtn {
+    margin: 0 0 0 10px;
+  }
 
   .container {
     display: flex;
     gap: 5px;
 
     button {
-      cursor: pointer;
+      margin: 0;
     }
   }
 

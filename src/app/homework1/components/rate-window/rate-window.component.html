@@ -28,6 +28,12 @@
         />
       </button>
     </div>
-    <button class="rate-button" [ngClass]="{ clicked: clicked }">Rate</button>
+    <button
+      class="rate-button"
+      [ngClass]="{ clicked: clicked }"
+      (click)="voted()"
+    >
+      Rate
+    </button>
   </div>
 </div>
