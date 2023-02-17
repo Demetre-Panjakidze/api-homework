@@ -1,4 +1,3 @@
-<button routerLink="../result">Back to movie</button>
 <button routerLink="../" class="secondBtn">Go back</button>
 <main>
   <div class="container">
@@ -17,18 +16,42 @@
     </section>
     <hr />
     <section class="listInfo">
-      <span>x Titles</span>
-      <div class="sortContainer">
+      <span>{{ amountOfMovies }} Titles</span>
+      <!-- <div class="sortContainer">
         <div class="chooseSort">
           <span>sort by:</span>
         </div>
-      </div>
+      </div> -->
     </section>
     <hr />
     <section class="listOfMovies">
       <ng-container *ngIf="favoriteMoviesList$ | async as list">
         <ul>
-          <li *ngFor="let movie of list">{{ movie.title }}</li>
+          <li *ngFor="let movie of list">
+            <img [src]="movie.Poster" alt="poster of a movie" class="poster" />
+            <div class="movieInformation">
+              <div class="first">
+                <h3>{{ movie.Title }}</h3>
+                <div class="ratingsList">
+                  <div class="imdbRating rating">
+                    <img src="assets/star.svg" alt="yellow star icon" />
+                    <span>{{ movie.imdbRating }}</span>
+                  </div>
+                  <div class="myRating rating">
+                    <img src="assets/star.svg" alt="blue star icon" />
+                    <span>{{ movie.myVote }}</span>
+                  </div>
+                </div>
+              </div>
+              <p>
+                <span>{{ movie.Type | titlecase }}</span> -
+                <span>{{ movie.Year }}</span> - <span>{{ movie.Rated }}</span> -
+                <span>{{ movie.Runtime }}</span>
+              </p>
+              <p>{{ movie.Actors }}</p>
+              <p class="userReview">{{ movie.myReview }}</p>
+            </div>
+          </li>
         </ul>
       </ng-container>
     </section>

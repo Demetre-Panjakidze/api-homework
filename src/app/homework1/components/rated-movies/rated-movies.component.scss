@@ -73,5 +73,54 @@ main {
       display: flex;
       justify-content: space-between;
     }
+
+    .listOfMovies {
+      ul {
+        padding: 0;
+
+        li {
+          display: flex;
+          gap: 20px;
+          list-style: none;
+          margin: 0 0 20px;
+
+          .poster {
+            width: 150px;
+          }
+
+          .movieInformation {
+            .first {
+              display: flex;
+              align-items: center;
+
+              .ratingsList {
+                display: flex;
+
+                .rating {
+                  display: flex;
+                }
+
+                .imdbRating {
+                  img {
+                    filter: invert(82%) sepia(46%) saturate(2718%)
+                      hue-rotate(350deg) brightness(109%) contrast(92%);
+                  }
+                }
+                .myRating {
+                  img {
+                    filter: invert(62%) sepia(24%) saturate(5489%)
+                      hue-rotate(190deg) brightness(98%) contrast(91%);
+                  }
+                }
+              }
+            }
+
+            .userReview {
+              margin: 5px 0 0;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -9,8 +9,14 @@ import { MovieApiService } from '../../movie-api.service';
 })
 export class RatedMoviesComponent implements OnInit {
   favoriteMoviesList$: Observable<any> = this.api.getMyList();
+  amountOfMovies: number = 1;
 
   constructor(private api: MovieApiService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.amountOfMovies = 1;
+    this.favoriteMoviesList$.subscribe((x) => {
+      this.amountOfMovies++;
+    });
+  }
 }

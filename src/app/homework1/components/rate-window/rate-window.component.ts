@@ -78,6 +78,6 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
         myVote: `${this.voteNumber}`,
         myReview: this.inputValue,
       })
-      .subscribe(console.log);
+      .subscribe();
   }
 }
