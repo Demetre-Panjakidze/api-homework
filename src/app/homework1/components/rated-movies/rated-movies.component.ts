@@ -9,6 +9,7 @@ import { MovieApiService } from '../../movie-api.service';
 })
 export class RatedMoviesComponent implements OnInit {
   favoriteMoviesList$: Observable<any> = this.api.getMyList();
+  editMode: boolean = false;
   // amountOfMovies: number = 1;
   constructor(private api: MovieApiService) {}
 
@@ -19,7 +20,12 @@ export class RatedMoviesComponent implements OnInit {
     // });
   }
 
+  edit() {
+    this.editMode = true;
+  }
+
   delete(id: string) {
     this.api.deleteMovie(id).subscribe();
+    this.favoriteMoviesList$ = this.api.getMyList();
   }
 }
