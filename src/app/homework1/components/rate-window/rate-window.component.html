@@ -11,7 +11,7 @@
       }"
     />
     <span [ngStyle]="{ 'font-size': fontSize }">{{
-      !clicked ? "?" : voteNumber
+      !ratingClicked ? "?" : voteNumber
     }}</span>
     <div class="closeBtn" (click)="closeFn()">x</div>
     <h4>rate this</h4>
@@ -28,13 +28,23 @@
         />
       </button>
     </div>
-    <button
-      class="rate-button"
-      [ngClass]="{ clicked: clicked }"
-      (click)="voted()"
-      routerLink="../votes"
-    >
-      Rate
-    </button>
+    <div class="cont">
+      <textarea
+        name=""
+        id=""
+        class="textArea"
+        maxlength="150"
+        placeholder="Review.."
+        [(ngModel)]="inputValue"
+      ></textarea>
+      <button
+        class="rate-button"
+        [ngClass]="{ clicked: ratingClicked && inputValue }"
+        (click)="voted()"
+        routerLink="../votes"
+      >
+        Rate
+      </button>
+    </div>
   </div>
 </div>

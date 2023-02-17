@@ -70,7 +70,7 @@
     .stars {
       margin-block: 8px 0;
       display: flex;
-      gap: 7px;
+      gap: 10px;
 
       button {
         padding: 0;
@@ -87,20 +87,35 @@
       }
     }
 
-    .rate-button {
-      margin-block: 32px;
-      width: 300px;
-      height: 35px;
-      border-radius: 3px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.5);
-      border: none;
-    }
+    .cont {
+      margin-block: 32px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      width: 330px;
 
-    .clicked {
-      background-color: #f5c518;
-      color: #000;
-      cursor: pointer;
+      .textArea {
+        text-indent: 5px;
+        border-radius: 5px;
+        width: 240px;
+        height: 80px;
+        resize: none;
+      }
+
+      .rate-button {
+        width: 80px;
+        height: 35px;
+        border-radius: 3px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.5);
+        border: none;
+      }
+
+      .clicked {
+        background-color: #f5c518;
+        color: #000;
+        cursor: pointer;
+      }
     }
   }
 }

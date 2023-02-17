@@ -31,7 +31,8 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
   starWidth: number = 85;
   starHeight: number = 81;
   starPosition: number = -47;
-  clicked: boolean = false;
+  ratingClicked: boolean = false;
+  inputValue: string = '';
   voteSubmitted: boolean = false;
 
   constructor(private api: MovieApiService) {}
@@ -43,7 +44,7 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   rating(rate: number) {
-    this.clicked = true;
+    this.ratingClicked = true;
     this.starColor =
       'invert(62%) sepia(24%) saturate(5489%) hue-rotate(190deg) brightness(98%) contrast(91%)';
     this.buttonColor = '#f5c518';
@@ -71,7 +72,12 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
 
   voted() {
     this.voteSubmitted = true;
-    console.log('clicked. value:', this.voteNumber);
-    this.api.saveMyList(this.fullInfo).subscribe(console.log);
+    this.api
+      .saveMyList({
+        ...this.fullInfo,
+        myVote: `${this.voteNumber}`,
+        myReview: this.inputValue,
+      })
+      .subscribe(console.log);
   }
 }
