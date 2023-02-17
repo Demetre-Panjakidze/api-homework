@@ -43,6 +43,12 @@
     }
 
     .closeBtn {
+      position: absolute;
+      right: 20px;
+      top: -60px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
     }
 
     h4 {

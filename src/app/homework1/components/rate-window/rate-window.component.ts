@@ -2,7 +2,10 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
+  Input,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { MovieApiService } from '../../movie-api.service';
@@ -13,7 +16,9 @@ import { MovieApiService } from '../../movie-api.service';
   styleUrls: ['./rate-window.component.scss'],
 })
 export class RateWindowComponent implements OnInit, AfterViewInit {
-  clickedInside = false;
+  @Input() movieName: string = '';
+  @Output() message = new EventEmitter();
+  closed: boolean = false;
   buttonColor: string = 'rgba(255, 255, 255, 0.1)';
   textColor: string = 'rgba(255, 255, 255, 0.5)';
   starColor: string =
@@ -53,5 +58,10 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
 
   shouldHighlightStar(selectedRating: number): boolean {
     return selectedRating <= this.voteNumber;
+  }
+
+  closeFn() {
+    this.closed = true;
+    this.message.emit(this.closed);
   }
 }

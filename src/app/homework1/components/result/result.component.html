@@ -64,5 +64,9 @@
       </div>
     </div>
   </main>
-  <app-rate-window *ngIf="voteClicked"></app-rate-window>
+  <app-rate-window
+    *ngIf="voteClicked"
+    (message)="message($event)"
+    [movieName]="info.Title"
+  ></app-rate-window>
 </ng-container>

@@ -52,6 +52,10 @@ export class ResultComponent {
     });
   }
 
+  message(elem: any) {
+    this.voteClicked = !elem;
+  }
+
   rating() {
     this.voteClicked = true;
   }
