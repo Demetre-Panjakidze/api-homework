@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, Observable, take } from 'rxjs';
-import { Homework1Module } from './homework1.module';
+import { Observable } from 'rxjs';
 import { movieInDetails, result } from './movie.model';
 
 const API_BASE = 'https://www.omdbapi.com/?apikey=c10494d2';

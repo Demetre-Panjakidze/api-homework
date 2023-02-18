@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuComponent } from './components/menu/menu.component';
+import { InputComponent } from './components/input/input.component';
+import { RatedMoviesComponent } from './components/rated-movies/rated-movies.component';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: MenuComponent,
+    component: InputComponent,
   },
   {
-    path: 'search',
-    loadChildren: () =>
-      import('./homework1/homework1.module').then((n) => n.Homework1Module),
+    path: 'result',
+    component: ResultComponent,
+  },
+  {
+    path: 'votes',
+    component: RatedMoviesComponent,
   },
 ];
 
