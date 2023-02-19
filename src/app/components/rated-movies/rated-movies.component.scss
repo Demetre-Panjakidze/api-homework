@@ -93,7 +93,9 @@ main {
                 gap: 10px;
 
                 .delete,
-                .edit {
+                .edit,
+                .save,
+                .cancel {
                   max-height: 80px;
                   display: flex;
                   flex-direction: column;
@@ -117,6 +119,28 @@ main {
                 }
 
                 .delete {
+                  img {
+                    filter: invert(22%) sepia(96%) saturate(7395%)
+                      hue-rotate(358deg) brightness(121%) contrast(113%);
+                  }
+
+                  p {
+                    color: #f00;
+                  }
+                }
+
+                .save {
+                  img {
+                    filter: invert(61%) sepia(43%) saturate(5577%)
+                      hue-rotate(83deg) brightness(124%) contrast(118%);
+                  }
+
+                  p {
+                    color: rgb(49, 148, 49);
+                  }
+                }
+
+                .cancel {
                   img {
                     filter: invert(22%) sepia(96%) saturate(7395%)
                       hue-rotate(358deg) brightness(121%) contrast(113%);

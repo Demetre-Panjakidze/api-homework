@@ -60,6 +60,4 @@ export class ResultComponent {
   rating() {
     this.voteClicked = true;
   }
-
-  votes() {}
 }

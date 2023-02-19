@@ -43,18 +43,56 @@
                   </p>
                   <p>{{ movie.Actors }}</p>
                 </div>
-                <div class="edit-delete" (click)="edit()">
-                  <div class="edit">
+                <div class="edit-delete">
+                  <div
+                    class="edit"
+                    (click)="edit(movie.id)"
+                    *ngIf="selectedJokeId !== movie.id"
+                    [ngStyle]="{
+                      'pointer-events': selectedJokeId ? 'none' : 'auto'
+                    }"
+                  >
                     <img src="assets/edit.svg" alt="edit icon" />
                     <p>edit</p>
                   </div>
-                  <div class="delete" (click)="delete(movie.id)">
+                  <div
+                    class="delete"
+                    (click)="delete(movie.id)"
+                    *ngIf="selectedJokeId !== movie.id"
+                    [ngStyle]="{
+                      'pointer-events': selectedJokeId ? 'none' : 'auto'
+                    }"
+                  >
                     <img src="assets/delete.svg" alt="delete icon" />
                     <p>delete</p>
                   </div>
+                  <div
+                    class="save"
+                    *ngIf="selectedJokeId == movie.id"
+                    (click)="save()"
+                  >
+                    <img src="assets/checkbox.svg" alt="save icon" />
+                    <p>save</p>
+                  </div>
+                  <div
+                    class="cancel"
+                    *ngIf="selectedJokeId == movie.id"
+                    (click)="cancel()"
+                  >
+                    <img src="assets/cancelX.svg" alt="cancel icon" />
+                    <p>cancel</p>
+                  </div>
                 </div>
               </div>
-              <p class="userReview">{{ movie.myReview }}</p>
+              <p class="userReview" *ngIf="selectedJokeId !== movie.id">
+                {{ movie.myReview }}
+              </p>
+              <input
+                type="text"
+                *ngIf="selectedJokeId == movie.id"
+                [value]="movie.myReview"
+                #input
+              />
             </div>
           </li>
         </ul>

@@ -8,7 +8,7 @@ import { RatedMoviesComponent } from './components/rated-movies/rated-movies.com
 import { ResultComponent } from './components/result/result.component';
 import { FormsModule } from '@angular/forms';
 import { BigNumberPipe } from './pipes/bigNumber.pipe';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
