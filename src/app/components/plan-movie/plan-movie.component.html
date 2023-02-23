@@ -1,1 +1,56 @@
-<form></form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="inputContainer">
+    <label for="movieName">Movie Name:</label>
+    <input type="text" id="movieName" formControlName="movieName" />
+  </div>
+  <hr />
+  <div class="inputContainer">
+    <label for="movieCountries">Movie Countries</label>
+    <div class="selectAdd">
+      <select id="movieCountries">
+        <option value="null" hidden>select</option>
+        <option value="Georgia">Georgia</option>
+        <option value="US">US</option>
+      </select>
+      <button>+</button>
+    </div>
+  </div>
+  <hr />
+  <div class="inputContainer">
+    <div class="option1">
+      <input
+        type="radio"
+        id="movieType"
+        [value]="movieType.Movie"
+        [ngStyle]="{ cursor: 'pointer' }"
+        checked
+        formControlName="movieType"
+      />
+      <label for="movieType">{{ movieType.Movie }}</label>
+    </div>
+    <div class="option2">
+      <input
+        type="radio"
+        id="seriesType"
+        [value]="movieType.Series"
+        [ngStyle]="{ cursor: 'pointer' }"
+        formControlName="movieType"
+      />
+      <label for="seriesType">{{ movieType.Series }}</label>
+    </div>
+  </div>
+  <hr />
+  <div class="inputContainer" *ngIf="form.controls['seriesEpisodesNum']">
+    <label for="numOfSeries">Number of episodes:</label>
+    <input type="number" id="numOfSeries" formControlName="seriesEpisodesNum" />
+  </div>
+  <div class="inputContainer" *ngIf="form.controls['movieRuntime']">
+    <label for="movieRuntime">Movie runtime:</label>
+    <input type="number" id="movieRuntime" formControlName="movieRuntime" />
+  </div>
+  <hr />
+  <div class="inputContainer"></div>
+  <div class="inputContainer"></div>
+  <div class="inputContainer"></div>
+  <button type="submit">Submit</button>
+</form>

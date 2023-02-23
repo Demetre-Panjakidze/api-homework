@@ -6,7 +6,7 @@ import { InputComponent } from './components/input/input.component';
 import { RateWindowComponent } from './components/rate-window/rate-window.component';
 import { RatedMoviesComponent } from './components/rated-movies/rated-movies.component';
 import { ResultComponent } from './components/result/result.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BigNumberPipe } from './pipes/bigNumber.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanMovieComponent } from './components/plan-movie/plan-movie.component';
@@ -21,7 +21,13 @@ import { PlanMovieComponent } from './components/plan-movie/plan-movie.component
     BigNumberPipe,
     PlanMovieComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

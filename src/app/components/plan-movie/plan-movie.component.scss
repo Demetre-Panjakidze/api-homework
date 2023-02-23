@@ -1,0 +1,24 @@
+form {
+  margin: 10px;
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-block: 5px;
+
+    label {
+      cursor: pointer;
+    }
+
+    .selectAdd {
+      display: flex;
+      gap: 1px;
+    }
+  }
+
+  button[type="submit"] {
+    cursor: pointer;
+  }
+}

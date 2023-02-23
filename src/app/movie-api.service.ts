@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { movieInDetails, result } from './movie.model';
+import { CountryList, movieInDetails, result } from './movie.model';
 
 const API_BASE = 'https://www.omdbapi.com/?apikey=c10494d2';
 const COUNTY_BASE = 'https://restcountries.com';
@@ -49,5 +49,9 @@ export class MovieApiService {
 
   deleteMyMovie(bla: any) {
     return this.http.delete(`${MY_API_BASE}/myMovies/${bla}`);
+  }
+
+  getCountryList(): Observable<CountryList> {
+    return this.http.get<CountryList>(`${COUNTY_BASE}/v3.1/all`);
   }
 }
