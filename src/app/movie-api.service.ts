@@ -40,4 +40,14 @@ export class MovieApiService {
   deleteMovie(id: string) {
     return this.http.delete(`${MY_API_BASE}/movies/${id}`);
   }
+
+  //bla will change below
+
+  saveMyMovie(bla: any) {
+    return this.http.post(`${MY_API_BASE}/myMovies`, bla);
+  }
+
+  deleteMyMovie(bla: any) {
+    return this.http.delete(`${MY_API_BASE}/myMovies/${bla}`);
+  }
 }

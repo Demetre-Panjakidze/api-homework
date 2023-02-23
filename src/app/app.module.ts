@@ -9,6 +9,7 @@ import { ResultComponent } from './components/result/result.component';
 import { FormsModule } from '@angular/forms';
 import { BigNumberPipe } from './pipes/bigNumber.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { PlanMovieComponent } from './components/plan-movie/plan-movie.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     RatedMoviesComponent,
     ResultComponent,
     BigNumberPipe,
+    PlanMovieComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
