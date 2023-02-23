@@ -51,7 +51,7 @@ export class MovieApiService {
     return this.http.delete(`${MY_API_BASE}/myMovies/${bla}`);
   }
 
-  getCountryList(): Observable<CountryList> {
-    return this.http.get<CountryList>(`${COUNTY_BASE}/v3.1/all`);
+  getCountryList(): Observable<any> {
+    return this.http.get<any>(`${COUNTY_BASE}/v3.1/all`);
   }
 }

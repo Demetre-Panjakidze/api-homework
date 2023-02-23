@@ -1,8 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { map, mergeMap, Observable } from 'rxjs';
 import { MovieApiService } from 'src/app/movie-api.service';
-import { CountryList, RegisterMovie, MovieType } from 'src/app/movie.model';
+import {
+  CountryList,
+  RegisterMovie,
+  MovieType,
+  Genre,
+} from 'src/app/movie.model';
 
 @Component({
   selector: 'app-plan-movie',
@@ -11,22 +21,24 @@ import { CountryList, RegisterMovie, MovieType } from 'src/app/movie.model';
 })
 export class PlanMovieComponent implements OnInit {
   form: FormGroup<RegisterMovie> = this.buildForm();
-  countriesResult$: Observable<CountryList> | undefined =
-    this.api.getCountryList();
-  countryNameArr: any;
+  countriesResult$: Observable<any> | undefined = this.api.getCountryList();
+  countryNames: any[] = [];
   isSubmitted: boolean = false;
   movieType = MovieType;
-
+  genreList = Object.values(Genre);
+  genreValues: Array<any> = [];
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 
   private buildForm() {
-    return new FormGroup<RegisterMovie>({
+    return this.fb.group<RegisterMovie>({
       movieName: this.fb.control('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(20),
       ]),
       movieType: this.fb.control(this.movieType?.Movie),
+      movieReleaseDate: this.fb.control('', [Validators.required]),
+      movieGenre: this.fb.array([this.fb.control('')]),
     });
   }
 
@@ -58,8 +70,15 @@ export class PlanMovieComponent implements OnInit {
       this.handleMovietype(x);
     });
 
+    let index: number = 0;
     this.countriesResult$
-      ?.pipe(map((country) => country))
-      .subscribe(console.log);
+      ?.pipe(
+        mergeMap((country) => country),
+        map((x) => {
+          this.countryNames.push(x);
+          return x;
+        })
+      )
+      .subscribe((x) => x);
   }
 }

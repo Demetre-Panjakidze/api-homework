@@ -5,18 +5,25 @@
   </div>
   <hr />
   <div class="inputContainer">
-    <label for="movieCountries">Movie Countries</label>
+    <label for="movieCountries">Movie Countries:</label>
     <div class="selectAdd">
-      <select id="movieCountries">
+      <select id="movieCountries" formArrayName="movieCountries">
         <option value="null" hidden>select</option>
-        <option value="Georgia">Georgia</option>
-        <option value="US">US</option>
+        <option
+          [value]="countryInfo.name.common"
+          *ngFor="let countryInfo of countryNames"
+        >
+          {{ countryInfo.name.common }}
+        </option>
       </select>
-      <button>+</button>
+      <button [ngStyle]="{ cursor: 'pointer' }">x</button>
     </div>
   </div>
   <hr />
+  <div class="inputContainer">bla</div>
+  <hr />
   <div class="inputContainer">
+    <p>Movie type:</p>
     <div class="option1">
       <input
         type="radio"
@@ -48,9 +55,26 @@
     <label for="movieRuntime">Movie runtime:</label>
     <input type="number" id="movieRuntime" formControlName="movieRuntime" />
   </div>
+  <hr
+    *ngIf="form.controls['seriesEpisodesNum'] || form.controls['movieRuntime']"
+  />
+  <div class="inputContainer genreList">
+    <p>Genres:</p>
+    <div class="checkbox-container">
+      <div class="checkbox" *ngFor="let genre of genreList">
+        <input
+          type="checkbox"
+          [value]="genre"
+          [ngStyle]="{ cursor: 'pointer' }"
+        />
+        <span>{{ genre }}</span>
+      </div>
+    </div>
+  </div>
   <hr />
-  <div class="inputContainer"></div>
-  <div class="inputContainer"></div>
-  <div class="inputContainer"></div>
+  <div class="inputContainer">
+    <label for="date">Date:</label>
+    <input type="date" id="date" formControlName="movieReleaseDate" />
+  </div>
   <button type="submit">Submit</button>
 </form>

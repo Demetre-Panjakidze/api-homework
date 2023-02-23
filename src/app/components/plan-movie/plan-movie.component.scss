@@ -8,13 +8,22 @@ form {
     gap: 2px;
     margin-block: 5px;
 
-    label {
-      cursor: pointer;
-    }
-
     .selectAdd {
       display: flex;
       gap: 1px;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  .genreList {
+    .checkbox-container {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 10px;
     }
   }
 
