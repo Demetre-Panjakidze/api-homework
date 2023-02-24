@@ -62,7 +62,7 @@ export class PlanMovieComponent implements OnInit {
         ],
         []
       ),
-      movieType: this.fb.control(this.movieType?.Movie),
+      movieType: this.fb.control('Movie'),
       movieReleaseDate: this.fb.control('', {
         validators: [Validators.required, dateValidator()],
         updateOn: 'blur',
@@ -78,13 +78,20 @@ export class PlanMovieComponent implements OnInit {
       case 'Movie': {
         this.form.addControl(
           'movieRuntime',
-          this.fb.control('', [Validators.min(60), Validators.max(180)])
+          this.fb.control('', [
+            Validators.required,
+            Validators.min(60),
+            Validators.max(180),
+          ])
         );
         this.form.removeControl('seriesEpisodesNum');
         break;
       }
       case 'Series': {
-        this.form.addControl('seriesEpisodesNum', this.fb.control(''));
+        this.form.addControl(
+          'seriesEpisodesNum',
+          this.fb.control('', [Validators.required])
+        );
         this.form.removeControl('movieRuntime');
         break;
       }
@@ -120,6 +127,7 @@ export class PlanMovieComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.handleMovietype(this.form.controls['movieType'].value);
     this.form.controls['movieType'].valueChanges.subscribe((x) => {
       this.handleMovietype(x);
     });

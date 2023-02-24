@@ -81,7 +81,7 @@ export enum MovieType {
 
 export interface RegisterMovie {
   movieName: FormControl<string | null>;
-  movieType: FormControl<MovieType | null>;
+  movieType: FormControl<string | null>;
   seriesEpisodesNum?: FormControl<string | number | null>;
   movieRuntime?: FormControl<number | string | null>;
   movieReleaseDate: FormControl<string | null>;
