@@ -6,6 +6,29 @@
   <div class="inputContainer">
     <label for="movieName">Movie Name:</label>
     <input type="text" id="movieName" formControlName="movieName" />
+    <ng-container *ngIf="form.controls['movieName'].errors && isSubmitted">
+      <p
+        class="error name-blank-error"
+        *ngIf="form.controls['movieName'].errors['required']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        Please enter information
+      </p>
+      <p
+        class="error name-min-error"
+        *ngIf="form.controls['movieName'].errors['minlength']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        Name should be at least 3 letters
+      </p>
+      <p
+        class="error name-max-error"
+        *ngIf="form.controls['movieName'].errors['maxlength']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        Name should not contain more than 20 letters
+      </p>
+    </ng-container>
   </div>
   <hr />
   <div class="inputContainer">

@@ -53,15 +53,11 @@ export class PlanMovieComponent implements OnInit {
 
   private buildForm() {
     return this.fb.group<RegisterMovie>({
-      movieName: this.fb.control(
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(20),
-        ],
-        []
-      ),
+      movieName: this.fb.control('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+      ]),
       movieType: this.fb.control('Movie'),
       movieReleaseDate: this.fb.control('', {
         validators: [Validators.required, dateValidator()],
