@@ -22,10 +22,10 @@
         >
           <option [value]="''" hidden>select</option>
           <option
-            [value]="countryInfo.name.common"
-            *ngFor="let countryInfo of countryNames"
+            [value]="countryName"
+            *ngFor="let countryName of countryNames"
           >
-            {{ countryInfo.name.common }}
+            {{ countryName }}
           </option>
         </select>
         <button
@@ -51,7 +51,52 @@
     </div>
   </div>
   <hr />
-  <div class="inputContainer">bla</div>
+  <div class="inputContainer">
+    <label for="premiereCountries">Premiere Countries:</label>
+    <div class="selectAdd" formArrayName="moviePremierePlace">
+      <div
+        class="selectDiv"
+        *ngFor="
+          let country of form.controls.moviePremierePlace.controls;
+          let i = index
+        "
+      >
+        <select
+          id="premiereCountries"
+          class="movieSelect"
+          [ngClass]="{ pointerCursor: true }"
+          [formControl]="country"
+        >
+          <option [value]="''" hidden>select</option>
+          <option
+            [value]="premiereCountry"
+            *ngFor="let premiereCountry of premiereNames"
+          >
+            {{ premiereCountry }}
+          </option>
+        </select>
+        <button
+          type="button"
+          [ngStyle]="{ margin: '0 0 0 10px' }"
+          [ngClass]="{ pointerCursor: PremieresLength !== 1 }"
+          [disabled]="PremieresLength === 1"
+          (click)="removePremiere(i)"
+        >
+          Remove
+        </button>
+      </div>
+
+      <button
+        type="button"
+        [ngStyle]="{ margin: '10px 0 0' }"
+        [ngClass]="{ pointerCursor: !(PremieresLength === 10) }"
+        (click)="addPremiere()"
+        [disabled]="PremieresLength === 10"
+      >
+        Add countries
+      </button>
+    </div>
+  </div>
   <hr />
   <div class="inputContainer">
     <p>Movie type:</p>

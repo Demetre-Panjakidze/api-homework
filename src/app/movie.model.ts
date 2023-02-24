@@ -85,9 +85,8 @@ export interface RegisterMovie {
   seriesEpisodesNum?: FormControl<string | number | null>;
   movieRuntime?: FormControl<number | string | null>;
   movieReleaseDate: FormControl<string | null>;
+  movieCountries: FormArray<FormControl<string | null>>;
+  moviePremierePlace: FormArray<FormControl<string | null>>;
 
   movieGenre?: FormArray<FormControl<string | null>>;
-
-  movieCountries?: FormArray<FormControl<string | null>>;
-  moviePremierePlace?: FormArray<FormControl<string | null>>;
 }

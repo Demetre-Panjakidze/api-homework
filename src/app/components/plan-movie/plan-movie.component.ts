@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { map, mergeMap, Observable } from 'rxjs';
+import { map, mergeMap, Observable, tap } from 'rxjs';
 import { MovieApiService } from 'src/app/movie-api.service';
 import {
   CountryList,
@@ -21,31 +21,49 @@ import {
 })
 export class PlanMovieComponent implements OnInit {
   form: FormGroup<RegisterMovie> = this.buildForm();
-  countriesResult$: Observable<any> | undefined = this.api.getCountryList();
-  countryNames: any[] = [];
-  isSubmitted: boolean = false;
+  countriesResult$: Observable<CountryList[]> | undefined =
+    this.api.getCountryList();
+  countryList = this.form.controls.movieCountries;
+  premiereList = this.form.controls.moviePremierePlace;
+  countryNames: string[] = [];
+  premiereNames: string[] = [];
   movieType = MovieType;
   genreList = Object.values(Genre);
-  genreValues: Array<any> = [];
-  countryList = this.form.controls.movieCountries;
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
+
+  onSubmit() {
+    console.log(this.form);
+  }
 
   get CountriesLength() {
     return this.form.controls.movieCountries?.controls.length;
   }
 
+  get PremieresLength() {
+    return this.form.controls.moviePremierePlace?.controls.length;
+  }
+
+  get PremiereCountriesLength() {
+    return this.form.controls.moviePremierePlace?.controls.length;
+  }
+
   private buildForm() {
     return this.fb.group<RegisterMovie>({
-      movieName: this.fb.control('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(20),
-      ]),
+      movieName: this.fb.control(
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+        ],
+        []
+      ),
       movieType: this.fb.control(this.movieType?.Movie),
       movieReleaseDate: this.fb.control('', [Validators.required]),
       movieGenre: this.fb.array([this.fb.control('')]),
       movieCountries: this.fb.array([this.fb.control('')]),
+      moviePremierePlace: this.fb.array([this.fb.control('')]),
     });
   }
 
@@ -67,11 +85,6 @@ export class PlanMovieComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    this.isSubmitted = true;
-    console.log(this.form);
-  }
-
   addCountry() {
     if (this.CountriesLength === 5) {
       return;
@@ -86,6 +99,20 @@ export class PlanMovieComponent implements OnInit {
     this.countryList?.removeAt(index);
   }
 
+  addPremiere() {
+    if (this.PremieresLength === 10) {
+      return;
+    }
+    this.premiereList.push(new FormControl(''));
+  }
+
+  removePremiere(index: number) {
+    if (this.PremieresLength === 1) {
+      return;
+    }
+    this.premiereList?.removeAt(index);
+  }
+
   ngOnInit() {
     this.form.controls['movieType'].valueChanges.subscribe((x) => {
       this.handleMovietype(x);
@@ -94,8 +121,9 @@ export class PlanMovieComponent implements OnInit {
     this.countriesResult$
       ?.pipe(
         mergeMap((country) => country),
-        map((x) => {
-          this.countryNames.push(x);
+        map((x: any) => {
+          this.countryNames.push(x.name.common);
+          this.premiereNames.push(x.name.common);
           return x;
         })
       )
