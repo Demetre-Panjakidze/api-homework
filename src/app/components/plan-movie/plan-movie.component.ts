@@ -36,6 +36,15 @@ export class PlanMovieComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
+    this.api.saveMyMovie({
+      movieName: this.form.value.movieName || null,
+      movieType: this.form.value.movieType || null,
+      seriesEpisodesNum: this.form.value.seriesEpisodesNum || null,
+      movieRuntime: this.form.value.movieRuntime || null,
+      movieReleaseDate: this.form.value.movieReleaseDate || null,
+      movieCountries: this.form.value.movieCountries || [],
+      moviePremierePlace: this.form.value.moviePremierePlace || [],
+    });
     console.log(this.form);
   }
 

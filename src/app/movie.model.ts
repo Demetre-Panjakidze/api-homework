@@ -87,6 +87,16 @@ export interface RegisterMovie {
   movieReleaseDate: FormControl<string | null>;
   movieCountries: FormArray<FormControl<string | null>>;
   moviePremierePlace: FormArray<FormControl<string | null>>;
-
   movieGenre?: FormArray<FormControl<string | null>>;
+}
+
+export interface AddMyMovie {
+  movieName: string | null;
+  movieType: string | null;
+  seriesEpisodesNum?: string | number | null;
+  movieRuntime?: number | string | null;
+  movieReleaseDate: string | null;
+  movieCountries: (string | null)[];
+  moviePremierePlace: (string | null)[];
+  movieGenre?: (string | null)[];
 }

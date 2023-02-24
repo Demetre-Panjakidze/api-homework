@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CountryList, movieInDetails, result } from './movie.model';
+import { AddMyMovie, CountryList, movieInDetails, result } from './movie.model';
 
 const API_BASE = 'https://www.omdbapi.com/?apikey=c10494d2';
 const COUNTY_BASE = 'https://restcountries.com';
@@ -43,8 +43,8 @@ export class MovieApiService {
 
   //bla will change below
 
-  saveMyMovie(bla: any) {
-    return this.http.post(`${MY_API_BASE}/myMovies`, bla);
+  saveMyMovie(myMovie: AddMyMovie) {
+    return this.http.post(`${MY_API_BASE}/myMovies`, myMovie);
   }
 
   deleteMyMovie(bla: any) {
