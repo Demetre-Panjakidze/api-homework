@@ -28,6 +28,13 @@
       >
         Name should not contain more than 20 letters
       </p>
+      <p
+        class="error name-taken-error"
+        *ngIf="form.controls['movieName'].errors['takenName']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        Movie name already used
+      </p>
     </ng-container>
   </div>
   <hr />

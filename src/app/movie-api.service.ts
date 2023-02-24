@@ -12,7 +12,7 @@ const MY_API_BASE = 'http://localhost:3000';
 })
 export class MovieApiService {
   selectedMovieId: string = '';
-
+  myMovieNames: (string | null)[] = [];
   constructor(private http: HttpClient) {}
 
   movieSearch(content: string): Observable<result> {
@@ -42,6 +42,10 @@ export class MovieApiService {
   }
 
   //bla will change below
+
+  getMyMovie(): Observable<AddMyMovie[]> {
+    return this.http.get<AddMyMovie[]>(`${MY_API_BASE}/myMovies`);
+  }
 
   saveMyMovie(myMovie: AddMyMovie) {
     return this.http.post(`${MY_API_BASE}/myMovies`, myMovie);

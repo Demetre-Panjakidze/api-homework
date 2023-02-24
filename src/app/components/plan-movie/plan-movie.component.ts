@@ -12,8 +12,9 @@ import {
   RegisterMovie,
   MovieType,
   Genre,
+  AddMyMovie,
 } from 'src/app/movie.model';
-import { dateValidator } from 'src/app/app.validator';
+import { dateValidator, TakenNamesValidator } from 'src/app/app.validator';
 
 @Component({
   selector: 'app-plan-movie',
@@ -28,6 +29,7 @@ export class PlanMovieComponent implements OnInit {
   premiereList = this.form.controls.moviePremierePlace;
   countryNames: string[] = [];
   premiereNames: string[] = [];
+  takenMovieNames: string[] = [];
   movieType = MovieType;
   genreList = Object.values(Genre);
   isSubmitted: boolean = false;
@@ -47,6 +49,16 @@ export class PlanMovieComponent implements OnInit {
         moviePremierePlace: this.form.value.moviePremierePlace || [],
       })
       .subscribe();
+    this.api
+      .getMyMovie()
+      .pipe(
+        map((movies) =>
+          movies.map((movie) => {
+            this.api.myMovieNames.push(movie.movieName);
+          })
+        )
+      )
+      .subscribe();
     console.log(this.form);
   }
 
@@ -64,11 +76,15 @@ export class PlanMovieComponent implements OnInit {
 
   private buildForm() {
     return this.fb.group<RegisterMovie>({
-      movieName: this.fb.control('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(20),
-      ]),
+      movieName: this.fb.control('', {
+        validators: [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+          new TakenNamesValidator(this.api).validate(),
+        ],
+        updateOn: 'blur',
+      }),
       movieType: this.fb.control('Movie'),
       movieReleaseDate: this.fb.control('', {
         validators: [Validators.required, dateValidator()],
