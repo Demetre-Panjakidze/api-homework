@@ -13,6 +13,7 @@ import {
   MovieType,
   Genre,
 } from 'src/app/movie.model';
+import { dateValidator } from 'src/app/app.validator';
 
 @Component({
   selector: 'app-plan-movie',
@@ -29,10 +30,12 @@ export class PlanMovieComponent implements OnInit {
   premiereNames: string[] = [];
   movieType = MovieType;
   genreList = Object.values(Genre);
+  isSubmitted: boolean = false;
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 
   onSubmit() {
+    this.isSubmitted = true;
     console.log(this.form);
   }
 
@@ -60,7 +63,10 @@ export class PlanMovieComponent implements OnInit {
         []
       ),
       movieType: this.fb.control(this.movieType?.Movie),
-      movieReleaseDate: this.fb.control('', [Validators.required]),
+      movieReleaseDate: this.fb.control('', {
+        validators: [Validators.required, dateValidator()],
+        updateOn: 'blur',
+      }),
       movieGenre: this.fb.array([this.fb.control('')]),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),
@@ -117,7 +123,6 @@ export class PlanMovieComponent implements OnInit {
     this.form.controls['movieType'].valueChanges.subscribe((x) => {
       this.handleMovietype(x);
     });
-
     this.countriesResult$
       ?.pipe(
         mergeMap((country) => country),

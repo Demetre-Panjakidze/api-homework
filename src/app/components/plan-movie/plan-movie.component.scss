@@ -34,3 +34,17 @@ form {
     cursor: pointer;
   }
 }
+
+.submitted {
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    &.ng-invalid {
+      border: 2px solid #f00;
+    }
+
+    &.ng-valid {
+      border: 2px solid #0f0;
+    }
+  }
+}

@@ -1,4 +1,8 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  [class.submitted]="isSubmitted"
+>
   <div class="inputContainer">
     <label for="movieName">Movie Name:</label>
     <input type="text" id="movieName" formControlName="movieName" />
@@ -151,6 +155,21 @@
   <div class="inputContainer">
     <label for="date">Date:</label>
     <input type="date" id="date" formControlName="movieReleaseDate" />
+    <ng-container
+      *ngIf="
+        form.controls['movieReleaseDate'].errors &&
+        form.controls['movieReleaseDate'].dirty &&
+        isSubmitted
+      "
+    >
+      <p
+        class="error date-error"
+        *ngIf="form.controls['movieReleaseDate'].errors['pastDateSelected']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        Please select a future date
+      </p>
+    </ng-container>
   </div>
   <button type="submit" [ngClass]="{ pointerCursor: true }">Submit</button>
 </form>
