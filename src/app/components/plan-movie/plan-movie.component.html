@@ -6,17 +6,48 @@
   <hr />
   <div class="inputContainer">
     <label for="movieCountries">Movie Countries:</label>
-    <div class="selectAdd">
-      <select id="movieCountries" formArrayName="movieCountries">
-        <option value="null" hidden>select</option>
-        <option
-          [value]="countryInfo.name.common"
-          *ngFor="let countryInfo of countryNames"
+    <div class="selectAdd" formArrayName="movieCountries">
+      <div
+        class="selectDiv"
+        *ngFor="
+          let country of form.controls.movieCountries?.controls;
+          let i = index
+        "
+      >
+        <select
+          id="movieCountries"
+          class="movieSelect"
+          [ngClass]="{ pointerCursor: true }"
+          [formControl]="country"
         >
-          {{ countryInfo.name.common }}
-        </option>
-      </select>
-      <button [ngStyle]="{ cursor: 'pointer' }">x</button>
+          <option [value]="''" hidden>select</option>
+          <option
+            [value]="countryInfo.name.common"
+            *ngFor="let countryInfo of countryNames"
+          >
+            {{ countryInfo.name.common }}
+          </option>
+        </select>
+        <button
+          type="button"
+          [ngClass]="{ pointerCursor: CountriesLength !== 1 }"
+          [ngStyle]="{ margin: '0 0 0 10px' }"
+          (click)="removeCountry(i)"
+          [disabled]="CountriesLength === 1"
+        >
+          Remove
+        </button>
+      </div>
+
+      <button
+        type="button"
+        [ngStyle]="{ margin: '10px 0 0' }"
+        [ngClass]="{ pointerCursor: !(CountriesLength === 5) }"
+        (click)="addCountry()"
+        [disabled]="CountriesLength === 5"
+      >
+        Add countries
+      </button>
     </div>
   </div>
   <hr />
@@ -29,7 +60,7 @@
         type="radio"
         id="movieType"
         [value]="movieType.Movie"
-        [ngStyle]="{ cursor: 'pointer' }"
+        [ngClass]="{ pointerCursor: true }"
         checked
         formControlName="movieType"
       />
@@ -40,7 +71,7 @@
         type="radio"
         id="seriesType"
         [value]="movieType.Series"
-        [ngStyle]="{ cursor: 'pointer' }"
+        [ngClass]="{ pointerCursor: true }"
         formControlName="movieType"
       />
       <label for="seriesType">{{ movieType.Series }}</label>
@@ -52,7 +83,7 @@
     <input type="number" id="numOfSeries" formControlName="seriesEpisodesNum" />
   </div>
   <div class="inputContainer" *ngIf="form.controls['movieRuntime']">
-    <label for="movieRuntime">Movie runtime:</label>
+    <label for="movieRuntime">Movie runtime (m):</label>
     <input type="number" id="movieRuntime" formControlName="movieRuntime" />
   </div>
   <hr
@@ -65,7 +96,7 @@
         <input
           type="checkbox"
           [value]="genre"
-          [ngStyle]="{ cursor: 'pointer' }"
+          [ngClass]="{ pointerCursor: true }"
         />
         <span>{{ genre }}</span>
       </div>
@@ -76,5 +107,5 @@
     <label for="date">Date:</label>
     <input type="date" id="date" formControlName="movieReleaseDate" />
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" [ngClass]="{ pointerCursor: true }">Submit</button>
 </form>

@@ -8,14 +8,17 @@ form {
     gap: 2px;
     margin-block: 5px;
 
-    .selectAdd {
-      display: flex;
-      gap: 1px;
-    }
-
     .checkbox {
       display: flex;
       gap: 5px;
+    }
+
+    .innerContainer {
+      display: flex;
+    }
+
+    .selectDiv {
+      display: flex;
     }
   }
 
@@ -27,7 +30,7 @@ form {
     }
   }
 
-  button[type="submit"] {
+  .pointerCursor {
     cursor: pointer;
   }
 }

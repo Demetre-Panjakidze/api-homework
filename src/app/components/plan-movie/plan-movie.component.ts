@@ -27,7 +27,13 @@ export class PlanMovieComponent implements OnInit {
   movieType = MovieType;
   genreList = Object.values(Genre);
   genreValues: Array<any> = [];
+  countryList = this.form.controls.movieCountries;
+
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
+
+  get CountriesLength() {
+    return this.form.controls.movieCountries?.controls.length;
+  }
 
   private buildForm() {
     return this.fb.group<RegisterMovie>({
@@ -39,6 +45,7 @@ export class PlanMovieComponent implements OnInit {
       movieType: this.fb.control(this.movieType?.Movie),
       movieReleaseDate: this.fb.control('', [Validators.required]),
       movieGenre: this.fb.array([this.fb.control('')]),
+      movieCountries: this.fb.array([this.fb.control('')]),
     });
   }
 
@@ -65,12 +72,25 @@ export class PlanMovieComponent implements OnInit {
     console.log(this.form);
   }
 
+  addCountry() {
+    if (this.CountriesLength === 5) {
+      return;
+    }
+    this.countryList?.push(new FormControl(''));
+  }
+
+  removeCountry(index: number) {
+    if (this.CountriesLength === 1) {
+      return;
+    }
+    this.countryList?.removeAt(index);
+  }
+
   ngOnInit() {
     this.form.controls['movieType'].valueChanges.subscribe((x) => {
       this.handleMovietype(x);
     });
 
-    let index: number = 0;
     this.countriesResult$
       ?.pipe(
         mergeMap((country) => country),
