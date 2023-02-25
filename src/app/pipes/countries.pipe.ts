@@ -1,23 +1,68 @@
 import { OnInit, Pipe, PipeTransform } from '@angular/core';
-import { map, mergeMap, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { MovieApiService } from '../movie-api.service';
+import { CountryList } from '../movie.model';
 
 @Pipe({ name: 'countries' })
-export class CountriesPipe implements PipeTransform, OnInit {
-  countriesResult$: Observable<any> | undefined = this.api.getCountryList();
-  countryNames: any[] = [];
-  constructor(private api: MovieApiService) {}
-
-  ngOnInit() {
+export class CountriesPipe implements PipeTransform {
+  countriesResult$: Observable<CountryList[]> | undefined =
+    this.api.getCountryList();
+  countryNames: string[] = [];
+  premiereNames: string[] = [];
+  constructor(private api: MovieApiService) {
     this.countriesResult$
       ?.pipe(
-        mergeMap((country) => country),
-        map((x: any) => {
-          this.countryNames.push(x.name.common);
-          return x;
+        map((x) => {
+          x.map((country) => {
+            this.countryNames.push(country.name.common);
+          });
         })
+      )
+      .subscribe();
+  }
+
+  transform(
+    arr: any,
+    used: (string | null)[] | undefined,
+    self: string | null
+  ): string[] {
+    return this.countryNames.filter((x) => {
+      if (!used?.includes(x) || x === self) {
+        return true;
+      }
+      return false;
+    });
+  }
+}
+
+@Pipe({ name: 'premieres' })
+export class PremieresPipe implements PipeTransform, OnInit {
+  countriesResult$: Observable<CountryList[]> | undefined =
+    this.api.getCountryList();
+  premiereNames: string[] = [];
+  constructor(private api: MovieApiService) {
+    this.countriesResult$
+      ?.pipe(
+        map((x) =>
+          x.map((country) => {
+            this.premiereNames.push(country.name.common);
+          })
+        )
       )
       .subscribe((x) => x);
   }
-  transform() {}
+
+  ngOnInit() {}
+  transform(
+    arr: any,
+    used: (string | null)[] | undefined,
+    self: string | null
+  ): string[] {
+    return this.premiereNames.filter((x) => {
+      if (!used?.includes(x) || x === self) {
+        return true;
+      }
+      return false;
+    });
+  }
 }

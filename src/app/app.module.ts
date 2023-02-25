@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BigNumberPipe } from './pipes/bigNumber.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanMovieComponent } from './components/plan-movie/plan-movie.component';
+import { CountriesPipe, PremieresPipe } from './pipes/countries.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { PlanMovieComponent } from './components/plan-movie/plan-movie.component
     ResultComponent,
     BigNumberPipe,
     PlanMovieComponent,
+    CountriesPipe,
+    PremieresPipe,
   ],
   imports: [
     BrowserModule,

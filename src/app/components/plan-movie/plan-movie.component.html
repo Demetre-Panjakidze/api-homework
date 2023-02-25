@@ -3,7 +3,7 @@
   (ngSubmit)="onSubmit()"
   [class.submitted]="isSubmitted"
 >
-  <div class="inputContainer">
+  <div class="inputContainer NameInput">
     <label for="movieName">Movie Name:</label>
     <input type="text" id="movieName" formControlName="movieName" />
     <ng-container *ngIf="form.controls['movieName'].errors && isSubmitted">
@@ -26,7 +26,7 @@
         *ngIf="form.controls['movieName'].errors['maxlength']"
         [ngStyle]="{ color: '#F00' }"
       >
-        Name should not contain more than 20 letters
+        Name should be less than 20 letters
       </p>
       <p
         class="error name-taken-error"
@@ -38,7 +38,7 @@
     </ng-container>
   </div>
   <hr />
-  <div class="inputContainer">
+  <div class="inputContainer CountriesInput">
     <label for="movieCountries">Movie Countries:</label>
     <div class="selectAdd" formArrayName="movieCountries">
       <div
@@ -57,7 +57,10 @@
           <option [value]="''" hidden>select</option>
           <option
             [value]="countryName"
-            *ngFor="let countryName of countryNames"
+            *ngFor="
+              let countryName of []
+                | countries : form.value.movieCountries : country.value
+            "
           >
             {{ countryName }}
           </option>
@@ -85,13 +88,13 @@
     </div>
   </div>
   <hr />
-  <div class="inputContainer">
+  <div class="inputContainer PremieresInput">
     <label for="premiereCountries">Premiere Countries:</label>
     <div class="selectAdd" formArrayName="moviePremierePlace">
       <div
         class="selectDiv"
         *ngFor="
-          let country of form.controls.moviePremierePlace.controls;
+          let premiereCountryArr of form.controls.moviePremierePlace.controls;
           let i = index
         "
       >
@@ -99,12 +102,17 @@
           id="premiereCountries"
           class="movieSelect"
           [ngClass]="{ pointerCursor: true }"
-          [formControl]="country"
+          [formControl]="premiereCountryArr"
         >
           <option [value]="''" hidden>select</option>
           <option
             [value]="premiereCountry"
-            *ngFor="let premiereCountry of premiereNames"
+            *ngFor="
+              let premiereCountry of []
+                | premieres
+                  : form.value.moviePremierePlace
+                  : premiereCountryArr.value
+            "
           >
             {{ premiereCountry }}
           </option>
@@ -132,7 +140,7 @@
     </div>
   </div>
   <hr />
-  <div class="inputContainer">
+  <div class="inputContainer TypeInput">
     <p>Movie type:</p>
     <div class="option1">
       <input
@@ -161,7 +169,10 @@
     </div>
   </div>
   <hr />
-  <div class="inputContainer" *ngIf="form.controls['seriesEpisodesNum']">
+  <div
+    class="inputContainer SeriesEpisodesNumInput"
+    *ngIf="form.controls['seriesEpisodesNum']"
+  >
     <label for="numOfSeries">Number of episodes:</label>
     <input type="number" id="numOfSeries" formControlName="seriesEpisodesNum" />
     <ng-container
@@ -176,7 +187,10 @@
       </p>
     </ng-container>
   </div>
-  <div class="inputContainer" *ngIf="form.controls['movieRuntime']">
+  <div
+    class="inputContainer movieRuntimeInput"
+    *ngIf="form.controls['movieRuntime']"
+  >
     <label for="movieRuntime">Movie runtime (minutes):</label>
     <input type="number" id="movieRuntime" formControlName="movieRuntime" />
     <ng-container *ngIf="form.controls['movieRuntime'].errors && isSubmitted">
@@ -220,7 +234,7 @@
     </div>
   </div>
   <hr />
-  <div class="inputContainer">
+  <div class="inputContainer dateInput">
     <label for="date">Date:</label>
     <input type="date" id="date" formControlName="movieReleaseDate" />
     <ng-container

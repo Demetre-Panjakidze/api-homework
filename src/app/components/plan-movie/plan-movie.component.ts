@@ -15,6 +15,7 @@ import {
   AddMyMovie,
 } from 'src/app/movie.model';
 import { dateValidator, TakenNamesValidator } from 'src/app/app.validator';
+import { CountriesPipe, PremieresPipe } from 'src/app/pipes/countries.pipe';
 
 @Component({
   selector: 'app-plan-movie',
@@ -23,13 +24,8 @@ import { dateValidator, TakenNamesValidator } from 'src/app/app.validator';
 })
 export class PlanMovieComponent implements OnInit {
   form: FormGroup<RegisterMovie> = this.buildForm();
-  countriesResult$: Observable<CountryList[]> | undefined =
-    this.api.getCountryList();
   countryList = this.form.controls.movieCountries;
   premiereList = this.form.controls.moviePremierePlace;
-  countryNames: string[] = [];
-  premiereNames: string[] = [];
-  takenMovieNames: string[] = [];
   movieType = MovieType;
   genreList = Object.values(Genre);
   isSubmitted: boolean = false;
@@ -67,10 +63,6 @@ export class PlanMovieComponent implements OnInit {
   }
 
   get PremieresLength() {
-    return this.form.controls.moviePremierePlace?.controls.length;
-  }
-
-  get PremiereCountriesLength() {
     return this.form.controls.moviePremierePlace?.controls.length;
   }
 
@@ -154,15 +146,5 @@ export class PlanMovieComponent implements OnInit {
     this.form.controls['movieType'].valueChanges.subscribe((x) => {
       this.handleMovietype(x);
     });
-    this.countriesResult$
-      ?.pipe(
-        mergeMap((country) => country),
-        map((x: any) => {
-          this.countryNames.push(x.name.common);
-          this.premiereNames.push(x.name.common);
-          return x;
-        })
-      )
-      .subscribe((x) => x);
   }
 }
