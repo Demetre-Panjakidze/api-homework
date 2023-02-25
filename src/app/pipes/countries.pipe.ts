@@ -1,10 +1,10 @@
 import { OnInit, Pipe, PipeTransform } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { delay, map, Observable, tap } from 'rxjs';
 import { MovieApiService } from '../movie-api.service';
 import { CountryList } from '../movie.model';
 
 @Pipe({ name: 'countries' })
-export class CountriesPipe implements PipeTransform {
+export class CountriesPipe implements PipeTransform, OnInit {
   countriesResult$: Observable<CountryList[]> | undefined =
     this.api.getCountryList();
   countryNames: string[] = [];
@@ -20,6 +20,8 @@ export class CountriesPipe implements PipeTransform {
       )
       .subscribe();
   }
+
+  ngOnInit() {}
 
   transform(
     arr: any,
@@ -66,3 +68,29 @@ export class PremieresPipe implements PipeTransform, OnInit {
     });
   }
 }
+
+// class ApiService {
+//   checkUsedEmail(email: string): Observable<boolean> {
+//     return new Observable((observer) => {
+//       setTimeout(() => {
+//         if (alreadyUsedEmails.includes(email)) {
+//           observer.next(true);
+//         } else {
+//           observer.next(false);
+//         }
+//         observer.complete();
+//       }, 2000);
+//     });
+//   }
+// }
+
+// export function UsedMailValidator(): AsyncValidatorFn {
+//   return (control: AbstractControl): Observable<ValidationErrors | null> => {
+//     const apiService = new ApiService();
+//     return apiService.checkUsedEmail(control.value).pipe(
+//       map((isUsed) => {
+//         return isUsed ? { isUsed } : null;
+//       })
+//     );
+//   };
+// }
