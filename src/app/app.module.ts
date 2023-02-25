@@ -11,6 +11,7 @@ import { BigNumberPipe } from './pipes/bigNumber.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanMovieComponent } from './components/plan-movie/plan-movie.component';
 import { CountriesPipe, PremieresPipe } from './pipes/countries.pipe';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CountriesPipe, PremieresPipe } from './pipes/countries.pipe';
     PlanMovieComponent,
     CountriesPipe,
     PremieresPipe,
+    RatingComponent,
   ],
   imports: [
     BrowserModule,

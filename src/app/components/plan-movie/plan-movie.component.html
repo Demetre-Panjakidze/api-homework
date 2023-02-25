@@ -256,5 +256,9 @@
       </p>
     </ng-container>
   </div>
+  <hr />
+  <div class="inputContainer ratingInput">
+    <app-rating [maxRating]="10" formControlName="movieRating"></app-rating>
+  </div>
   <button type="submit" [ngClass]="{ pointerCursor: true }">Submit</button>
 </form>

@@ -43,6 +43,7 @@ export class PlanMovieComponent implements OnInit {
         movieReleaseDate: this.form.value.movieReleaseDate || null,
         movieCountries: this.form.value.movieCountries || [],
         moviePremierePlace: this.form.value.moviePremierePlace || [],
+        movieRating: this.form.value.movieRating || null,
       })
       .subscribe();
     this.api
@@ -85,6 +86,7 @@ export class PlanMovieComponent implements OnInit {
       movieGenre: this.fb.array([this.fb.control('')]),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),
+      movieRating: this.fb.control(3),
     });
   }
 

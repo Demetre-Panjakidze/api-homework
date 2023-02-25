@@ -1,0 +1,22 @@
+<p>Rating:</p>
+<div class="starsContainer">
+  <div
+    class="starsList"
+    *ngFor="let star of stars; let i = index"
+    (mouseenter)="enter(i)"
+    (mouseleave)="leave()"
+  >
+    <img
+      src="../../../assets/star.svg"
+      alt="star icons"
+      [ngClass]="getStarClass(i)"
+      [class.self]="isHovered(i)"
+      (click)="select(i)"
+    />
+  </div>
+  <div class="rating">
+    <span>{{ currentRating }}</span
+    ><span [ngStyle]="{ margin: '0 3px' }">/</span
+    ><span>{{ stars.length }}</span>
+  </div>
+</div>

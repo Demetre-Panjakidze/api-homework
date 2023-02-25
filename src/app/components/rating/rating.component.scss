@@ -1,0 +1,38 @@
+.starsContainer {
+  display: flex;
+  align-items: center;
+
+  .starsList {
+    display: inline-block;
+    cursor: pointer;
+
+    img {
+      width: 30px;
+      filter: invert(92%) sepia(0%) saturate(364%) hue-rotate(141deg)
+        brightness(92%) contrast(89%);
+      transition: scale 0.1s;
+
+      &.active {
+        filter: invert(77%) sepia(34%) saturate(3576%) hue-rotate(6deg)
+          brightness(104%) contrast(101%);
+      }
+
+      :hover {
+        transition: scale 0.1s;
+      }
+
+      &.hovered {
+        &.self {
+          filter: invert(75%) sepia(70%) saturate(3458%) hue-rotate(11deg)
+            brightness(100%) contrast(96%);
+          scale: 1.2;
+        }
+      }
+    }
+  }
+
+  .rating {
+    margin-inline-start: 10px;
+    user-select: none;
+  }
+}
