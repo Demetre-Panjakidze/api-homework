@@ -12,7 +12,6 @@ const MY_API_BASE = 'http://localhost:3000';
 })
 export class MovieApiService {
   selectedMovieId: string = '';
-  myMovieNames: (string | null)[] = [];
   constructor(private http: HttpClient) {}
 
   movieSearch(content: string): Observable<result> {

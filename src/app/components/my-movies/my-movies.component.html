@@ -12,7 +12,9 @@
             <h2>{{ movie.movieName }}</h2>
             <div class="rating">
               <img src="../../../assets/star.svg" alt="star icon" />
-              <span>{{ movie.movieRating }}</span>
+              <span [ngStyle]="{ margin: '0 0 0 2px' }">{{
+                movie.movieRating
+              }}</span>
             </div>
             <span class="type">{{ movie.movieType }}</span>
             <span class="runtime" *ngIf="movie.movieRuntime"

@@ -1,5 +1,10 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { map, tap } from 'rxjs';
+import {
+  AbstractControl,
+  AsyncValidatorFn,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
+import { map, Observable, tap } from 'rxjs';
 import { MovieApiService } from './movie-api.service';
 
 export function dateValidator(): ValidatorFn {
@@ -13,14 +18,17 @@ export function dateValidator(): ValidatorFn {
   };
 }
 
-export class TakenNamesValidator {
-  constructor(private api: MovieApiService) {}
-
-  validate(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      return this.api.myMovieNames.includes(control.value)
-        ? { takenName: true }
-        : null;
-    };
-  }
+export function TakenName(service: MovieApiService): AsyncValidatorFn {
+  return (
+    control: AbstractControl
+  ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+    return service.getMyMovie().pipe(
+      map((movie) => {
+        const bla = movie.find(
+          (x) => x.movieName?.toLowerCase() == control.value.toLowerCase()
+        );
+        return bla ? { usedName: true } : null;
+      })
+    );
+  };
 }
