@@ -8,11 +8,7 @@ import {
 import { map } from 'rxjs';
 import { MovieApiService } from 'src/app/movie-api.service';
 import { RegisterMovie, MovieType } from 'src/app/movie.model';
-import {
-  AtLeastOneGenre,
-  dateValidator,
-  TakenNamesValidator,
-} from 'src/app/app.validator';
+import { dateValidator, TakenNamesValidator } from 'src/app/app.validator';
 
 @Component({
   selector: 'app-plan-movie',

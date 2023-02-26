@@ -12,10 +12,16 @@ main {
 
   .container {
     display: flex;
-    gap: 5px;
+    justify-content: space-between;
 
-    button {
-      margin: 0;
+    .left,
+    .right {
+      display: flex;
+      gap: 5px;
+
+      button {
+        margin: 0;
+      }
     }
   }
 
