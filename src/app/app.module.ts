@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlanMovieComponent } from './components/plan-movie/plan-movie.component';
 import { CountriesPipe, PremieresPipe } from './pipes/countries.pipe';
 import { RatingComponent } from './components/rating/rating.component';
+import { GenresComponent } from './components/genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RatingComponent } from './components/rating/rating.component';
     CountriesPipe,
     PremieresPipe,
     RatingComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,
