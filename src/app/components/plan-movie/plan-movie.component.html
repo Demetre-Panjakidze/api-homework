@@ -221,7 +221,7 @@
     *ngIf="form.controls['seriesEpisodesNum'] || form.controls['movieRuntime']"
   />
   <div class="inputContainer genreList">
-    <app-genres></app-genres>
+    <app-genres [genres]="genres" formControlName="movieGenre"></app-genres>
   </div>
   <hr />
   <div class="inputContainer dateInput">

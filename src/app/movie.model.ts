@@ -56,24 +56,6 @@ export interface CountryFlag {
   svg: string;
 }
 
-export enum Genre {
-  Action = 'Action',
-  Adventure = 'Adventure',
-  Animation = 'Animation',
-  Comedy = 'Comedy',
-  Crime = 'Crime',
-  Drama = 'Drama',
-  Fantasy = 'Fantasy',
-  Horror = 'Horror',
-  Musical = 'Musical',
-  Mystery = 'Mystery',
-  Romance = 'Romance',
-  ScienceFiction = 'Science Fiction',
-  Thriller = 'Thriller',
-  War = 'War',
-  Western = 'Western',
-}
-
 export enum MovieType {
   Movie = 'Movie',
   Series = 'Series',
@@ -87,7 +69,7 @@ export interface RegisterMovie {
   movieReleaseDate: FormControl<string | null>;
   movieCountries: FormArray<FormControl<string | null>>;
   moviePremierePlace: FormArray<FormControl<string | null>>;
-  movieGenre?: FormArray<FormControl<string | null>>;
+  movieGenre: FormControl<string[] | null>;
   movieRating: FormControl<number | null>;
 }
 
@@ -99,6 +81,6 @@ export interface AddMyMovie {
   movieReleaseDate: string | null;
   movieCountries: (string | null)[];
   moviePremierePlace: (string | null)[];
-  movieGenre?: (string | null)[];
+  movieGenre: string[] | null;
   movieRating: number | null;
 }

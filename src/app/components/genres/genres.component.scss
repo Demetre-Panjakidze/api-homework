@@ -7,3 +7,38 @@
 //     }
 //   }
 // }
+
+:host {
+  width: 100%;
+}
+
+.genresContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 530px;
+  gap: 10px;
+
+  .genreCard {
+    width: 125px;
+    height: 125px;
+    border-radius: 5px;
+    background-color: rgb(26, 91, 102);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: scale 0.2s, background-color 0.2s;
+
+    &.selected {
+      background-color: rgb(60, 128, 139);
+    }
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      scale: 1.1;
+      transition: scale 0.2s, background-color 0.2s;
+    }
+  }
+}

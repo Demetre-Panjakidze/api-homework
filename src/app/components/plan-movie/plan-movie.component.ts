@@ -5,17 +5,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { map, mergeMap, Observable, tap } from 'rxjs';
+import { map } from 'rxjs';
 import { MovieApiService } from 'src/app/movie-api.service';
-import {
-  CountryList,
-  RegisterMovie,
-  MovieType,
-  Genre,
-  AddMyMovie,
-} from 'src/app/movie.model';
+import { RegisterMovie, MovieType } from 'src/app/movie.model';
 import { dateValidator, TakenNamesValidator } from 'src/app/app.validator';
-import { CountriesPipe, PremieresPipe } from 'src/app/pipes/countries.pipe';
+import { Genre } from '../genres/genres.component';
 
 @Component({
   selector: 'app-plan-movie',
@@ -27,8 +21,42 @@ export class PlanMovieComponent implements OnInit {
   countryList = this.form.controls.movieCountries;
   premiereList = this.form.controls.moviePremierePlace;
   movieType = MovieType;
-  genreList = Object.values(Genre);
   isSubmitted: boolean = false;
+
+  genres: Genre[] = [
+    {
+      label: 'Comedy',
+      emoji: '😀',
+    },
+    {
+      label: 'Adventure',
+      emoji: '🏇',
+    },
+    {
+      label: 'Action',
+      emoji: '🔫',
+    },
+    {
+      label: 'Crime',
+      emoji: '🩸',
+    },
+    {
+      label: 'Drama',
+      emoji: '😢',
+    },
+    {
+      label: 'Musical',
+      emoji: '🎵',
+    },
+    {
+      label: 'Romance',
+      emoji: '💏',
+    },
+    {
+      label: 'Science fiction',
+      emoji: '🔭',
+    },
+  ];
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 
@@ -44,6 +72,7 @@ export class PlanMovieComponent implements OnInit {
         movieCountries: this.form.value.movieCountries || [],
         moviePremierePlace: this.form.value.moviePremierePlace || [],
         movieRating: this.form.value.movieRating || null,
+        movieGenre: this.form.value.movieGenre || null,
       })
       .subscribe();
     this.api
@@ -83,7 +112,7 @@ export class PlanMovieComponent implements OnInit {
         validators: [Validators.required, dateValidator()],
         updateOn: 'blur',
       }),
-      movieGenre: this.fb.array([this.fb.control('')]),
+      movieGenre: this.fb.control([]),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),
       movieRating: this.fb.control(0, {

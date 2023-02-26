@@ -1,10 +1,69 @@
-import { Component } from '@angular/core';
-import { Genre } from 'src/app/movie.model';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { RatingComponent } from '../rating/rating.component';
+// import { Genre } from 'src/app/movie.model';
+
+export interface Genre {
+  emoji: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-genres',
   templateUrl: './genres.component.html',
   styleUrls: ['./genres.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => GenresComponent),
+      multi: true,
+    },
+  ],
 })
-export class GenresComponent {
-  genreList = Object.values(Genre);
+export class GenresComponent implements ControlValueAccessor {
+  @Input() genres: Genre[] = [];
+  private _selectedGenres: string[] = [];
+
+  constructor() {}
+
+  onChange: (genres: string[]) => void = () => {};
+  onTouched: () => void = () => {};
+
+  writeValue(genres: string[]) {
+    this._selectedGenres = genres || [];
+    this.onChange(genres);
+  }
+
+  registerOnChange(fn: (genres: string[]) => void) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void) {
+    this.onTouched = fn;
+  }
+
+  setDisabledState?(isDisabled: boolean) {}
+
+  isSelected(label: string) {
+    return this._selectedGenres.includes(label);
+  }
+
+  select(label: string) {
+    this._selectedGenres.push(label);
+    this.onChange(this._selectedGenres);
+  }
+
+  toggle(label: string) {
+    if (this._selectedGenres.includes(label)) {
+      this.remove(label);
+      return;
+    }
+
+    this.select(label);
+  }
+
+  remove(label: string) {
+    this._selectedGenres = this._selectedGenres.filter((x) => x !== label);
+    this.onChange(this._selectedGenres);
+  }
 }

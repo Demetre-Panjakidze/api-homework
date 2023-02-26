@@ -35,7 +35,7 @@ import { GenresComponent } from './components/genres/genres.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [RatingComponent, GenresComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -38,44 +38,44 @@
       "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 25,
-      "movieReleaseDate": "2023-02-08",
+      "movieRuntime": 140,
+      "movieReleaseDate": "2023-03-09",
       "movieCountries": [
-        "Greenland",
-        "North Macedonia",
-        ""
+        "Aruba",
+        "North Macedonia"
       ],
       "moviePremierePlace": [
-        "Colombia",
-        "India",
-        "Guatemala",
-        "Guernsey"
+        "Montserrat",
+        "Christmas Island",
+        "Sweden",
+        "Turkey"
       ],
-      "movieRating": 8,
+      "movieRating": 10,
+      "movieGenre": [],
       "id": 1
     },
     {
       "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 120,
+      "movieRuntime": 140,
       "movieReleaseDate": "2023-03-09",
       "movieCountries": [
-        "Greenland",
-        "North Macedonia",
-        ""
+        "Aruba",
+        "North Macedonia"
       ],
       "moviePremierePlace": [
-        "Colombia",
-        "India",
-        "Guatemala",
-        "Guernsey"
+        "Montserrat",
+        "Christmas Island",
+        "Sweden",
+        "Turkey"
       ],
-      "movieRating": 8,
+      "movieRating": 10,
+      "movieGenre": [],
       "id": 2
     },
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
       "movieRuntime": null,
@@ -87,10 +87,11 @@
         ""
       ],
       "movieRating": null,
+      "movieGenre": [],
       "id": 3
     },
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
       "movieRuntime": null,
@@ -102,7 +103,45 @@
         ""
       ],
       "movieRating": null,
+      "movieGenre": [],
       "id": 4
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 5
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Action",
+        "Romance",
+        "Science fiction",
+        "Crime"
+      ],
+      "id": 6
     }
   ]
 }

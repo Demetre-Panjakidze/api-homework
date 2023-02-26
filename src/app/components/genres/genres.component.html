@@ -1,11 +1,12 @@
-<!-- <p>Genres:</p>
-<div class="checkbox-container">
-  <div class="checkbox" *ngFor="let genre of genreList">
-    <input
-      type="checkbox"
-      [value]="genre"
-      [ngClass]="{ pointerCursor: true }"
-    />
-    <span>{{ genre }}</span>
+<p>Genres:</p>
+<div class="genresContainer">
+  <div
+    class="genreCard"
+    *ngFor="let genre of genres"
+    [class.selected]="isSelected(genre.label)"
+    (click)="toggle(genre.label)"
+  >
+    <div class="genre emoji">{{ genre.emoji }}</div>
+    <div class="genreLabel">{{ genre.label }}</div>
   </div>
-</div> -->
+</div>
