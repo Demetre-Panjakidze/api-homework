@@ -1,0 +1,48 @@
+<button routerLink="../">Go back</button>
+<main>
+  <div class="container">
+    <section class="overallInfo">
+      <h1 class="title">Your movies</h1>
+    </section>
+    <section class="listOfMyMovies">
+      <ng-container *ngIf="myMoviesList$ | async as list">
+        <ul *ngFor="let movie of list">
+          <hr class="topHr" />
+          <div class="top">
+            <h2>{{ movie.movieName }}</h2>
+            <div class="rating">
+              <img src="../../../assets/star.svg" alt="star icon" />
+              <span>{{ movie.movieRating }}</span>
+            </div>
+            <span class="type">{{ movie.movieType }}</span>
+            <span class="runtime" *ngIf="movie.movieRuntime"
+              >{{ minToHour(movie.movieRuntime) }} runtime</span
+            >
+            <span class="runtime" *ngIf="movie.seriesEpisodesNum"
+              >{{ movie.seriesEpisodesNum }} episodes</span
+            >
+          </div>
+          <hr />
+          <h4>Release Date:</h4>
+          <span class="releaseDate">{{ movie.movieReleaseDate | date }}</span>
+          <hr />
+          <h4>Movie genres:</h4>
+          <ul *ngFor="let genre of movie.movieGenre">
+            <li>{{ genre }}</li>
+          </ul>
+          <hr />
+          <h4>Countries where movie will be shot:</h4>
+          <ul *ngFor="let country of movie.movieCountries">
+            <li>{{ country }}</li>
+          </ul>
+          <hr />
+          <h4>Countries where premieres will be held:</h4>
+          <ul *ngFor="let country of movie.moviePremierePlace">
+            <li>{{ country }}</li>
+          </ul>
+        </ul>
+        <hr />
+      </ng-container>
+    </section>
+  </div>
+</main>

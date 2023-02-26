@@ -13,6 +13,7 @@ import { PlanMovieComponent } from './components/plan-movie/plan-movie.component
 import { CountriesPipe, PremieresPipe } from './pipes/countries.pipe';
 import { RatingComponent } from './components/rating/rating.component';
 import { GenresComponent } from './components/genres/genres.component';
+import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GenresComponent } from './components/genres/genres.component';
     PremieresPipe,
     RatingComponent,
     GenresComponent,
+    MyMoviesComponent,
   ],
   imports: [
     BrowserModule,

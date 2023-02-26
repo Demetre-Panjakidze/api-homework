@@ -11,7 +11,6 @@ export class RatedMoviesComponent {
   favoriteMoviesList$: Observable<any> = this.api.getMyList();
   editMode: boolean = false;
   selectedJokeId: string | undefined;
-  // amountOfMovies: number = 1;
   @ViewChild('input') input: ElementRef | undefined;
   constructor(private api: MovieApiService) {}
 

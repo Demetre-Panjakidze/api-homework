@@ -46,62 +46,58 @@
   ],
   "myMovies": [
     {
-      "movieName": null,
+      "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
+      "movieRuntime": 125,
+      "movieReleaseDate": "2027-10-21",
       "movieCountries": [
-        ""
+        "Indonesia",
+        "Czechia",
+        "Chile",
+        "Myanmar"
       ],
       "moviePremierePlace": [
-        ""
+        "Namibia",
+        "Georgia",
+        "United Kingdom",
+        "Azerbaijan",
+        "Sweden",
+        "United States",
+        "Palestine"
       ],
-      "movieRating": null,
-      "movieGenre": [
-        "Science fiction",
-        "Adventure"
-      ],
-      "id": 1
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Science fiction",
-        "Crime"
-      ],
-      "id": 2
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
+      "movieRating": 10,
       "movieGenre": [
         "Science fiction",
         "Drama",
         "Adventure"
       ],
-      "id": 3
+      "id": 1
+    },
+    {
+      "movieName": "The office",
+      "movieType": "Series",
+      "seriesEpisodesNum": 25,
+      "movieRuntime": null,
+      "movieReleaseDate": "2023-03-11",
+      "movieCountries": [
+        "Åland Islands",
+        "Afghanistan",
+        "Antigua and Barbuda",
+        "Algeria",
+        "Bahrain"
+      ],
+      "moviePremierePlace": [
+        "Australia",
+        "Georgia",
+        "United States",
+        "Ukraine"
+      ],
+      "movieRating": 10,
+      "movieGenre": [
+        "Comedy"
+      ],
+      "id": 2
     }
   ]
 }

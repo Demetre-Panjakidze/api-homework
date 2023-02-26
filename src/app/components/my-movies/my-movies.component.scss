@@ -1,0 +1,40 @@
+button {
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+}
+main {
+  margin: 0 0 0 10px;
+
+  .topHr {
+    border-color: rgba(0, 0, 0, 0.5);
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .rating {
+      display: flex;
+      img {
+        filter: invert(62%) sepia(24%) saturate(5489%) hue-rotate(190deg)
+          brightness(98%) contrast(91%);
+        width: 18px;
+        height: 24px;
+      }
+      span {
+        font-weight: 900;
+      }
+    }
+
+    .runtime,
+    .type {
+      margin: 0 0 0 5px;
+    }
+  }
+}

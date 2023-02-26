@@ -28,7 +28,10 @@ export class CountriesPipe implements PipeTransform, OnInit {
     used: (string | null)[] | undefined,
     self: string | null
   ): string[] {
-    return this.countryNames.filter((x) => {
+    const sortedCountryNames = this.countryNames.sort((a, b) =>
+      a.localeCompare(b)
+    );
+    return sortedCountryNames.filter((x) => {
       if (!used?.includes(x) || x === self) {
         return true;
       }
@@ -60,7 +63,10 @@ export class PremieresPipe implements PipeTransform, OnInit {
     used: (string | null)[] | undefined,
     self: string | null
   ): string[] {
-    return this.premiereNames.filter((x) => {
+    const sortedCountryNames = this.premiereNames.sort((a, b) =>
+      a.localeCompare(b)
+    );
+    return sortedCountryNames.filter((x) => {
       if (!used?.includes(x) || x === self) {
         return true;
       }
