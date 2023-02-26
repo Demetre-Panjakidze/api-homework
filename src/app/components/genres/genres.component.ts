@@ -51,6 +51,11 @@ export class GenresComponent implements ControlValueAccessor {
     this.onChange(this._selectedGenres);
   }
 
+  remove(label: string) {
+    this._selectedGenres = this._selectedGenres.filter((x) => x !== label);
+    this.onChange(this._selectedGenres);
+  }
+
   choose(label: string) {
     if (this._selectedGenres.includes(label)) {
       this.remove(label);
@@ -58,10 +63,5 @@ export class GenresComponent implements ControlValueAccessor {
     }
 
     this.select(label);
-  }
-
-  remove(label: string) {
-    this._selectedGenres = this._selectedGenres.filter((x) => x !== label);
-    this.onChange(this._selectedGenres);
   }
 }
