@@ -222,6 +222,15 @@
   />
   <div class="inputContainer genreList">
     <app-genres [genres]="genres" formControlName="movieGenre"></app-genres>
+    <ng-container *ngIf="form.controls['movieGenre'].errors && isSubmitted">
+      <p
+        class="error genres-empty-error"
+        *ngIf="form.controls['movieGenre'].errors['genresEmpty']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        the movie should be at least one genre
+      </p>
+    </ng-container>
   </div>
   <hr />
   <div class="inputContainer dateInput">

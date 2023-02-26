@@ -8,7 +8,11 @@ import {
 import { map } from 'rxjs';
 import { MovieApiService } from 'src/app/movie-api.service';
 import { RegisterMovie, MovieType } from 'src/app/movie.model';
-import { dateValidator, TakenNamesValidator } from 'src/app/app.validator';
+import {
+  AtLeastOneGenre,
+  dateValidator,
+  TakenNamesValidator,
+} from 'src/app/app.validator';
 import { Genre } from '../genres/genres.component';
 
 @Component({
@@ -81,6 +85,7 @@ export class PlanMovieComponent implements OnInit {
         map((movies) =>
           movies.map((movie) => {
             this.api.myMovieNames.push(movie.movieName);
+            this.api.genreList = movie.movieGenre;
           })
         )
       )
@@ -112,7 +117,9 @@ export class PlanMovieComponent implements OnInit {
         validators: [Validators.required, dateValidator()],
         updateOn: 'blur',
       }),
-      movieGenre: this.fb.control([]),
+      movieGenre: this.fb.control([], {
+        validators: [new AtLeastOneGenre(this.api).validate()],
+      }),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),
       movieRating: this.fb.control(0, {

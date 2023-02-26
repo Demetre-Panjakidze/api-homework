@@ -23,3 +23,13 @@ export class TakenNamesValidator {
     };
   }
 }
+
+export class AtLeastOneGenre {
+  constructor(private api: MovieApiService) {}
+
+  validate(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return !this.api.genreList?.length ? { genresEmpty: true } : null;
+    };
+  }
+}
