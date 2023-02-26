@@ -98,6 +98,109 @@
         "Comedy"
       ],
       "id": 2
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 3
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 4
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 5
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 6
+    },
+    {
+      "movieName": "The office2",
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": 140,
+      "movieReleaseDate": "2023-03-02",
+      "movieCountries": [
+        "",
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": 8,
+      "movieGenre": [
+        "Comedy"
+      ],
+      "id": 7
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Science fiction",
+        "Drama",
+        "Adventure"
+      ],
+      "id": 8
     }
   ]
 }

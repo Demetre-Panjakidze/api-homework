@@ -21,37 +21,37 @@ export class PlanMovieComponent implements OnInit {
   premiereList = this.form.controls.moviePremierePlace;
   movieType = MovieType;
   isSubmitted: boolean = false;
-  checkedGenres: string[] | null | undefined = [];
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 
   onSubmit() {
     this.isSubmitted = true;
-    this.checkedGenres = this.form.value.movieGenre;
-    this.api
-      .saveMyMovie({
-        movieName: this.form.value.movieName || null,
-        movieType: this.form.value.movieType || null,
-        seriesEpisodesNum: this.form.value.seriesEpisodesNum || null,
-        movieRuntime: this.form.value.movieRuntime || null,
-        movieReleaseDate: this.form.value.movieReleaseDate || null,
-        movieCountries: this.form.value.movieCountries || [],
-        moviePremierePlace: this.form.value.moviePremierePlace || [],
-        movieRating: this.form.value.movieRating || null,
-        movieGenre: this.checkedGenres || null,
-      })
-      .subscribe();
-    this.api
-      .getMyMovie()
-      .pipe(
-        map((movies) =>
-          movies.map((movie) => {
-            this.api.myMovieNames.push(movie.movieName);
-          })
+    if (this.form.status !== 'INVALID') {
+      this.api
+        .saveMyMovie({
+          movieName: this.form.value.movieName || null,
+          movieType: this.form.value.movieType || null,
+          seriesEpisodesNum: this.form.value.seriesEpisodesNum || null,
+          movieRuntime: this.form.value.movieRuntime || null,
+          movieReleaseDate: this.form.value.movieReleaseDate || null,
+          movieCountries: this.form.value.movieCountries || [],
+          moviePremierePlace: this.form.value.moviePremierePlace || [],
+          movieRating: this.form.value.movieRating || null,
+          movieGenre: this.form.value.movieGenre || null,
+        })
+        .subscribe();
+      this.api
+        .getMyMovie()
+        .pipe(
+          map((movies) =>
+            movies.map((movie) => {
+              this.api.myMovieNames.push(movie.movieName);
+            })
+          )
         )
-      )
-      .subscribe();
-    console.log(this.form);
+        .subscribe();
+      console.log(this.form);
+    }
   }
 
   get CountriesLength() {
@@ -110,6 +110,10 @@ export class PlanMovieComponent implements OnInit {
         break;
       }
     }
+  }
+
+  disabledFn() {
+    return true;
   }
 
   addCountry() {
