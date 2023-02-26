@@ -4,7 +4,7 @@ import { MovieApiService } from '../movie-api.service';
 import { CountryList } from '../movie.model';
 
 @Pipe({ name: 'countries' })
-export class CountriesPipe implements PipeTransform, OnInit {
+export class CountriesPipe implements PipeTransform {
   countriesResult$: Observable<CountryList[]> | undefined =
     this.api.getCountryList();
   countryNames: string[] = [];
@@ -20,8 +20,6 @@ export class CountriesPipe implements PipeTransform, OnInit {
       )
       .subscribe();
   }
-
-  ngOnInit() {}
 
   transform(
     arr: any,

@@ -51,12 +51,7 @@
       "seriesEpisodesNum": null,
       "movieRuntime": 125,
       "movieReleaseDate": "2027-10-21",
-      "movieCountries": [
-        "Indonesia",
-        "Czechia",
-        "Chile",
-        "Myanmar"
-      ],
+      "movieCountries": ["Indonesia", "Czechia", "Chile", "Myanmar"],
       "moviePremierePlace": [
         "Namibia",
         "Georgia",
@@ -67,11 +62,7 @@
         "Palestine"
       ],
       "movieRating": 10,
-      "movieGenre": [
-        "Science fiction",
-        "Drama",
-        "Adventure"
-      ],
+      "movieGenre": ["Science fiction", "Drama", "Adventure"],
       "id": 1
     },
     {
@@ -94,33 +85,8 @@
         "Ukraine"
       ],
       "movieRating": 10,
-      "movieGenre": [
-        "Comedy"
-      ],
+      "movieGenre": ["Comedy"],
       "id": 2
-    },
-    {
-      "movieName": "whale",
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": 119,
-      "movieReleaseDate": "2023-03-03",
-      "movieCountries": [
-        "Algeria",
-        "Antigua and Barbuda",
-        "Antarctica"
-      ],
-      "moviePremierePlace": [
-        "Bahamas",
-        "Azerbaijan",
-        "Barbados",
-        "Australia"
-      ],
-      "movieRating": 9,
-      "movieGenre": [
-        "Drama"
-      ],
-      "id": 3
     }
   ]
 }

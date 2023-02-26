@@ -24,10 +24,11 @@ export function TakenName(service: MovieApiService): AsyncValidatorFn {
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
     return service.getMyMovie().pipe(
       map((movie) => {
-        const bla = movie.find(
+        return movie.find(
           (x) => x.movieName?.toLowerCase() == control.value.toLowerCase()
-        );
-        return bla ? { usedName: true } : null;
+        )
+          ? { usedName: true }
+          : null;
       })
     );
   };
