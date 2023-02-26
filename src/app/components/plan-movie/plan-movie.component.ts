@@ -25,11 +25,13 @@ export class PlanMovieComponent implements OnInit {
   premiereList = this.form.controls.moviePremierePlace;
   movieType = MovieType;
   isSubmitted: boolean = false;
+  checkedGenres: string[] | null | undefined = [];
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 
   onSubmit() {
     this.isSubmitted = true;
+    this.checkedGenres = this.form.value.movieGenre;
     this.api
       .saveMyMovie({
         movieName: this.form.value.movieName || null,
@@ -40,7 +42,7 @@ export class PlanMovieComponent implements OnInit {
         movieCountries: this.form.value.movieCountries || [],
         moviePremierePlace: this.form.value.moviePremierePlace || [],
         movieRating: this.form.value.movieRating || null,
-        movieGenre: this.form.value.movieGenre || null,
+        movieGenre: this.checkedGenres || null,
       })
       .subscribe();
     this.api
@@ -80,10 +82,7 @@ export class PlanMovieComponent implements OnInit {
         validators: [Validators.required, dateValidator()],
         updateOn: 'blur',
       }),
-      movieGenre: this.fb.control([], {
-        validators: [new AtLeastOneGenre(this.api).validate()],
-        updateOn: 'submit',
-      }),
+      movieGenre: this.fb.control([]),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),
       movieRating: this.fb.control(0, {

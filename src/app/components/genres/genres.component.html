@@ -1,12 +1,12 @@
 <p>Genres:</p>
 <div class="genresContainer">
-  <div
-    class="genre"
-    *ngFor="let genre of genres"
-    [class.selected]="isSelected(genre)"
-    (click)="toggle(genre)"
-  >
-    <input type="checkbox" [value]="genre" [id]="genre" />
-    <label [for]="genre">{{ genre }}</label>
+  <div class="genre" *ngFor="let genre of genres">
+    <input
+      type="checkbox"
+      [value]="genre"
+      [id]="genre"
+      (change)="choose(genre)"
+    />
+    <label [for]="genre" (change)="choose(genre)">{{ genre }}</label>
   </div>
 </div>

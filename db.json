@@ -46,78 +46,246 @@
   ],
   "myMovies": [
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 148,
+      "movieRuntime": null,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
-        "Ghana",
         ""
       ],
-      "movieRating": 5,
+      "movieRating": null,
       "movieGenre": [],
       "id": 1
     },
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 148,
+      "movieRuntime": null,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
-        "Ghana",
         ""
       ],
-      "movieRating": 5,
-      "movieGenre": [
-        "Drama"
-      ],
+      "movieRating": null,
+      "movieGenre": [],
       "id": 2
     },
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 148,
+      "movieRuntime": null,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
-        "Ghana",
         ""
       ],
-      "movieRating": 5,
+      "movieRating": null,
       "movieGenre": [
-        "Drama"
+        "Comedy",
+        "Musical",
+        "Action"
       ],
       "id": 3
     },
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 148,
+      "movieRuntime": null,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
-        "Ghana",
         ""
       ],
-      "movieRating": 5,
+      "movieRating": null,
       "movieGenre": [
-        "Drama"
+        "Comedy",
+        "Musical",
+        "Action",
+        "Science fiction",
+        "Drama",
+        "Adventure"
       ],
       "id": 4
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Comedy",
+        "Musical",
+        "Action",
+        "Science fiction",
+        "Drama",
+        "Adventure",
+        "Romance",
+        "Crime"
+      ],
+      "id": 5
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 6
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [],
+      "id": 7
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Crime"
+      ],
+      "id": 8
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Comedy",
+        "Musical",
+        "Action",
+        "Science fiction",
+        "Drama",
+        "Adventure",
+        "Romance",
+        "Crime"
+      ],
+      "id": 9
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Comedy",
+        "Musical",
+        "Action",
+        "Science fiction",
+        "Drama",
+        "Adventure",
+        "Romance",
+        "Crime"
+      ],
+      "id": 10
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Comedy",
+        "Musical",
+        "Action",
+        "Romance",
+        "Crime"
+      ],
+      "id": 11
+    },
+    {
+      "movieName": null,
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "movieGenre": [
+        "Science fiction",
+        "Action",
+        "Crime"
+      ],
+      "id": 12
     }
   ]
 }

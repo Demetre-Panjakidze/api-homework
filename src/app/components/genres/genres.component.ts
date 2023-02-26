@@ -1,7 +1,5 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { RatingComponent } from '../rating/rating.component';
-// import { Genre } from 'src/app/movie.model';
 
 @Component({
   selector: 'app-genres',
@@ -48,16 +46,12 @@ export class GenresComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean) {}
 
-  isSelected(label: string) {
-    return this._selectedGenres.includes(label);
-  }
-
   select(label: string) {
     this._selectedGenres.push(label);
     this.onChange(this._selectedGenres);
   }
 
-  toggle(label: string) {
+  choose(label: string) {
     if (this._selectedGenres.includes(label)) {
       this.remove(label);
       return;
