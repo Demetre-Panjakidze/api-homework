@@ -1,76 +1,79 @@
 {
   "movies": [
     {
-      "Title": "The Office",
-      "Year": "2005–2013",
-      "Rated": "TV-14",
-      "Released": "24 Mar 2005",
-      "Runtime": "22 min",
-      "Genre": "Comedy",
-      "Director": "N/A",
-      "Writer": "Greg Daniels, Ricky Gervais, Stephen Merchant",
-      "Actors": "Steve Carell, Jenna Fischer, John Krasinski",
-      "Plot": "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.",
-      "Language": "English",
-      "Country": "United States",
-      "Awards": "Won 5 Primetime Emmys. 51 wins & 195 nominations total",
-      "Poster": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_SX300.jpg",
+      "Title": "RED",
+      "Year": "2010",
+      "Rated": "PG-13",
+      "Released": "15 Oct 2010",
+      "Runtime": "111 min",
+      "Genre": "Action, Comedy, Crime",
+      "Director": "Robert Schwentke",
+      "Writer": "Jon Hoeber, Erich Hoeber, Warren Ellis",
+      "Actors": "Bruce Willis, Helen Mirren, Morgan Freeman",
+      "Plot": "When his peaceful life is threatened by a high-tech assassin, former black-ops agent Frank Moses reassembles his old team in a last-ditch effort to survive and uncover his assailants.",
+      "Language": "English, Russian",
+      "Country": "United States, China",
+      "Awards": "4 wins & 19 nominations",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMzg2Mjg1OTk0NF5BMl5BanBnXkFtZTcwMjQ4MTA3Mw@@._V1_SX300.jpg",
       "Ratings": [
         {
           "Source": "Internet Movie Database",
-          "Value": "9.0/10"
+          "Value": "7.0/10"
+        },
+        {
+          "Source": "Rotten Tomatoes",
+          "Value": "71%"
+        },
+        {
+          "Source": "Metacritic",
+          "Value": "60/100"
         }
       ],
-      "Metascore": "N/A",
-      "imdbRating": "9.0",
-      "imdbVotes": "612,972",
-      "imdbID": "tt0386676",
-      "Type": "series",
-      "totalSeasons": "9",
+      "Metascore": "60",
+      "imdbRating": "7.0",
+      "imdbVotes": "312,959",
+      "imdbID": "tt1245526",
+      "Type": "movie",
+      "DVD": "25 Jan 2011",
+      "BoxOffice": "$90,380,162",
+      "Production": "N/A",
+      "Website": "N/A",
       "Response": "True",
       "myVote": "10",
-      "myReview": "Great!",
+      "myReview": "wefewf",
       "id": 1
     }
   ],
   "myMovies": [
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 140,
-      "movieReleaseDate": "2023-03-09",
+      "movieRuntime": null,
+      "movieReleaseDate": null,
       "movieCountries": [
-        "Aruba",
-        "North Macedonia"
+        ""
       ],
       "moviePremierePlace": [
-        "Montserrat",
-        "Christmas Island",
-        "Sweden",
-        "Turkey"
+        ""
       ],
-      "movieRating": 10,
+      "movieRating": null,
       "movieGenre": [],
       "id": 1
     },
     {
-      "movieName": "Avatar",
+      "movieName": null,
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": 140,
-      "movieReleaseDate": "2023-03-09",
+      "movieRuntime": null,
+      "movieReleaseDate": null,
       "movieCountries": [
-        "Aruba",
-        "North Macedonia"
+        ""
       ],
       "moviePremierePlace": [
-        "Montserrat",
-        "Christmas Island",
-        "Sweden",
-        "Turkey"
+        ""
       ],
-      "movieRating": 10,
+      "movieRating": null,
       "movieGenre": [],
       "id": 2
     },
@@ -87,7 +90,10 @@
         ""
       ],
       "movieRating": null,
-      "movieGenre": [],
+      "movieGenre": [
+        "Musical",
+        "Romance"
+      ],
       "id": 3
     },
     {
@@ -119,7 +125,9 @@
         ""
       ],
       "movieRating": null,
-      "movieGenre": [],
+      "movieGenre": [
+        "Musical"
+      ],
       "id": 5
     },
     {
@@ -135,12 +143,7 @@
         ""
       ],
       "movieRating": null,
-      "movieGenre": [
-        "Action",
-        "Romance",
-        "Science fiction",
-        "Crime"
-      ],
+      "movieGenre": [],
       "id": 6
     },
     {
@@ -156,313 +159,10 @@
         ""
       ],
       "movieRating": null,
-      "movieGenre": [],
+      "movieGenre": [
+        "Drama"
+      ],
       "id": 7
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 8
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 9
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Romance"
-      ],
-      "id": 10
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 11
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Crime",
-        "Science fiction"
-      ],
-      "id": 12
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Musical"
-      ],
-      "id": 13
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 14
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Musical",
-        "Romance"
-      ],
-      "id": 15
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 16
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Romance",
-        "Musical"
-      ],
-      "id": 17
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 18
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Musical",
-        "Romance"
-      ],
-      "id": 19
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Musical",
-        "Action",
-        "Science fiction",
-        "Romance"
-      ],
-      "id": 20
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Adventure",
-        "Action",
-        "Musical",
-        "Romance"
-      ],
-      "id": 21
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Adventure",
-        "Action",
-        "Musical",
-        "Romance",
-        "Science fiction",
-        "Crime"
-      ],
-      "id": 22
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 23
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 24
     }
   ]
 }

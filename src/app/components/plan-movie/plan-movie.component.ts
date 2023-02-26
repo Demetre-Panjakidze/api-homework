@@ -85,7 +85,6 @@ export class PlanMovieComponent implements OnInit {
         map((movies) =>
           movies.map((movie) => {
             this.api.myMovieNames.push(movie.movieName);
-            this.api.genreList = movie.movieGenre;
           })
         )
       )
@@ -119,6 +118,7 @@ export class PlanMovieComponent implements OnInit {
       }),
       movieGenre: this.fb.control([], {
         validators: [new AtLeastOneGenre(this.api).validate()],
+        updateOn: 'submit',
       }),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),

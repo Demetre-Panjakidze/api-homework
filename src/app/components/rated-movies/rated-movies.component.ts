@@ -7,20 +7,13 @@ import { MovieApiService } from '../../movie-api.service';
   templateUrl: './rated-movies.component.html',
   styleUrls: ['./rated-movies.component.scss'],
 })
-export class RatedMoviesComponent implements OnInit {
+export class RatedMoviesComponent {
   favoriteMoviesList$: Observable<any> = this.api.getMyList();
   editMode: boolean = false;
   selectedJokeId: string | undefined;
   // amountOfMovies: number = 1;
   @ViewChild('input') input: ElementRef | undefined;
   constructor(private api: MovieApiService) {}
-
-  ngOnInit() {
-    // this.amountOfMovies = 1;
-    // this.favoriteMoviesList$.subscribe((x) => {
-    //   this.amountOfMovies++;
-    // });
-  }
 
   edit(id: string) {
     this.selectedJokeId = id;

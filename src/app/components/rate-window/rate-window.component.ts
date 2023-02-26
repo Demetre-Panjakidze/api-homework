@@ -8,6 +8,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MovieApiService } from '../../movie-api.service';
 import { movieInDetails } from '../../movie.model';
@@ -35,7 +36,7 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
   inputValue: string = '';
   voteSubmitted: boolean = false;
 
-  constructor(private api: MovieApiService) {}
+  constructor(private api: MovieApiService, private router: Router) {}
 
   ngAfterViewInit() {
     document.body.style.overflow = 'hidden';
@@ -72,12 +73,15 @@ export class RateWindowComponent implements OnInit, AfterViewInit {
 
   voted() {
     this.voteSubmitted = true;
+
     this.api
       .saveMyList({
         ...this.fullInfo,
         myVote: `${this.voteNumber}`,
         myReview: this.inputValue,
       })
-      .subscribe();
+      .subscribe(() => {
+        this.router.navigateByUrl('votes');
+      });
   }
 }
