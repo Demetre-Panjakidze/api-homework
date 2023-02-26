@@ -46,123 +46,78 @@
   ],
   "myMovies": [
     {
-      "movieName": null,
+      "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": null,
+      "movieRuntime": 148,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
+        "Ghana",
         ""
       ],
-      "movieRating": null,
+      "movieRating": 5,
       "movieGenre": [],
       "id": 1
     },
     {
-      "movieName": null,
+      "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": null,
+      "movieRuntime": 148,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
+        "Ghana",
         ""
       ],
-      "movieRating": null,
-      "movieGenre": [],
+      "movieRating": 5,
+      "movieGenre": [
+        "Drama"
+      ],
       "id": 2
     },
     {
-      "movieName": null,
+      "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": null,
+      "movieRuntime": 148,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
+        "Ghana",
         ""
       ],
-      "movieRating": null,
+      "movieRating": 5,
       "movieGenre": [
-        "Musical",
-        "Romance"
+        "Drama"
       ],
       "id": 3
     },
     {
-      "movieName": null,
+      "movieName": "Avatar",
       "movieType": "Movie",
       "seriesEpisodesNum": null,
-      "movieRuntime": null,
+      "movieRuntime": 148,
       "movieReleaseDate": null,
       "movieCountries": [
         ""
       ],
       "moviePremierePlace": [
+        "Ghana",
         ""
       ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 4
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [
-        "Musical"
-      ],
-      "id": 5
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
-      "movieGenre": [],
-      "id": 6
-    },
-    {
-      "movieName": null,
-      "movieType": "Movie",
-      "seriesEpisodesNum": null,
-      "movieRuntime": null,
-      "movieReleaseDate": null,
-      "movieCountries": [
-        ""
-      ],
-      "moviePremierePlace": [
-        ""
-      ],
-      "movieRating": null,
+      "movieRating": 5,
       "movieGenre": [
         "Drama"
       ],
-      "id": 7
+      "id": 4
     }
   ]
 }

@@ -13,7 +13,6 @@ import {
   dateValidator,
   TakenNamesValidator,
 } from 'src/app/app.validator';
-import { Genre } from '../genres/genres.component';
 
 @Component({
   selector: 'app-plan-movie',
@@ -26,41 +25,6 @@ export class PlanMovieComponent implements OnInit {
   premiereList = this.form.controls.moviePremierePlace;
   movieType = MovieType;
   isSubmitted: boolean = false;
-
-  genres: Genre[] = [
-    {
-      label: 'Comedy',
-      emoji: '😀',
-    },
-    {
-      label: 'Adventure',
-      emoji: '🏇',
-    },
-    {
-      label: 'Action',
-      emoji: '🔫',
-    },
-    {
-      label: 'Crime',
-      emoji: '🩸',
-    },
-    {
-      label: 'Drama',
-      emoji: '😢',
-    },
-    {
-      label: 'Musical',
-      emoji: '🎵',
-    },
-    {
-      label: 'Romance',
-      emoji: '💏',
-    },
-    {
-      label: 'Science fiction',
-      emoji: '🔭',
-    },
-  ];
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 

@@ -1,12 +1,12 @@
 <p>Genres:</p>
 <div class="genresContainer">
   <div
-    class="genreCard"
+    class="genre"
     *ngFor="let genre of genres"
-    [class.selected]="isSelected(genre.label)"
-    (click)="toggle(genre.label)"
+    [class.selected]="isSelected(genre)"
+    (click)="toggle(genre)"
   >
-    <div class="genre emoji">{{ genre.emoji }}</div>
-    <div class="genreLabel">{{ genre.label }}</div>
+    <input type="checkbox" [value]="genre" [id]="genre" />
+    <label [for]="genre">{{ genre }}</label>
   </div>
 </div>

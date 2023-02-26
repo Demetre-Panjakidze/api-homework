@@ -3,11 +3,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RatingComponent } from '../rating/rating.component';
 // import { Genre } from 'src/app/movie.model';
 
-export interface Genre {
-  emoji: string;
-  label: string;
-}
-
 @Component({
   selector: 'app-genres',
   templateUrl: './genres.component.html',
@@ -21,7 +16,16 @@ export interface Genre {
   ],
 })
 export class GenresComponent implements ControlValueAccessor {
-  @Input() genres: Genre[] = [];
+  genres: string[] = [
+    'Comedy',
+    'Science fiction',
+    'Romance',
+    'Musical',
+    'Drama',
+    'Crime',
+    'Action',
+    'Adventure',
+  ];
   private _selectedGenres: string[] = [];
 
   constructor() {}

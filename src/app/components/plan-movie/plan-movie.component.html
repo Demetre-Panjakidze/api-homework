@@ -3,6 +3,7 @@
   (ngSubmit)="onSubmit()"
   [class.submitted]="isSubmitted"
 >
+  <button routerLink="">Back</button>
   <div class="inputContainer NameInput">
     <label for="movieName">Movie Name:</label>
     <input type="text" id="movieName" formControlName="movieName" />
@@ -221,7 +222,7 @@
     *ngIf="form.controls['seriesEpisodesNum'] || form.controls['movieRuntime']"
   />
   <div class="inputContainer genreList">
-    <app-genres [genres]="genres" formControlName="movieGenre"></app-genres>
+    <app-genres formControlName="movieGenre"></app-genres>
     <ng-container *ngIf="form.controls['movieGenre'].errors && isSubmitted">
       <p
         class="error genres-empty-error"
