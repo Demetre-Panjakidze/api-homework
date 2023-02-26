@@ -259,6 +259,15 @@
   <hr />
   <div class="inputContainer ratingInput">
     <app-rating [maxRating]="10" formControlName="movieRating"></app-rating>
+    <ng-container *ngIf="form.controls['movieRating'].errors && isSubmitted">
+      <p
+        class="error rating-min-error"
+        *ngIf="form.controls['movieRating'].errors['min']"
+        [ngStyle]="{ color: '#F00' }"
+      >
+        rating minimum is 1
+      </p>
+    </ng-container>
   </div>
   <button type="submit" [ngClass]="{ pointerCursor: true }">Submit</button>
 </form>

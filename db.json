@@ -33,5 +33,76 @@
       "id": 1
     }
   ],
-  "myMovies": []
+  "myMovies": [
+    {
+      "movieName": "Avatar",
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": 25,
+      "movieReleaseDate": "2023-02-08",
+      "movieCountries": [
+        "Greenland",
+        "North Macedonia",
+        ""
+      ],
+      "moviePremierePlace": [
+        "Colombia",
+        "India",
+        "Guatemala",
+        "Guernsey"
+      ],
+      "movieRating": 8,
+      "id": 1
+    },
+    {
+      "movieName": "Avatar",
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": 120,
+      "movieReleaseDate": "2023-03-09",
+      "movieCountries": [
+        "Greenland",
+        "North Macedonia",
+        ""
+      ],
+      "moviePremierePlace": [
+        "Colombia",
+        "India",
+        "Guatemala",
+        "Guernsey"
+      ],
+      "movieRating": 8,
+      "id": 2
+    },
+    {
+      "movieName": "Avatar",
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "id": 3
+    },
+    {
+      "movieName": "Avatar",
+      "movieType": "Movie",
+      "seriesEpisodesNum": null,
+      "movieRuntime": null,
+      "movieReleaseDate": null,
+      "movieCountries": [
+        ""
+      ],
+      "moviePremierePlace": [
+        ""
+      ],
+      "movieRating": null,
+      "id": 4
+    }
+  ]
 }

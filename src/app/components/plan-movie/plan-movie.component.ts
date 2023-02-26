@@ -86,7 +86,9 @@ export class PlanMovieComponent implements OnInit {
       movieGenre: this.fb.array([this.fb.control('')]),
       movieCountries: this.fb.array([this.fb.control('')]),
       moviePremierePlace: this.fb.array([this.fb.control('')]),
-      movieRating: this.fb.control(3),
+      movieRating: this.fb.control(0, {
+        validators: [Validators.min(1)],
+      }),
     });
   }
 
