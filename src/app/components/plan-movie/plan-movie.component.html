@@ -277,7 +277,7 @@
     Submit
   </button>
   <span
-    *ngIf="errorMessage"
+    *ngIf="isSubmitted && form.invalid"
     [ngStyle]="{ margin: ' 0 0 0 10px', color: '#F00' }"
     >Please enter the correct information</span
   >

@@ -8,7 +8,7 @@ import {
 import { map } from 'rxjs';
 import { MovieApiService } from 'src/app/movie-api.service';
 import { RegisterMovie, MovieType } from 'src/app/movie.model';
-import { dateValidator, TakenName } from 'src/app/app.validator';
+import { dateValidator, takenName } from 'src/app/app.validator';
 
 @Component({
   selector: 'app-plan-movie',
@@ -21,14 +21,12 @@ export class PlanMovieComponent implements OnInit {
   premiereList = this.form.controls.moviePremierePlace;
   movieType = MovieType;
   isSubmitted: boolean = false;
-  errorMessage: boolean = false;
 
   constructor(private fb: FormBuilder, private api: MovieApiService) {}
 
   onSubmit() {
     this.isSubmitted = true;
     if (this.form.status !== 'INVALID') {
-      this.errorMessage = false;
       this.api
         .saveMyMovie({
           movieName: this.form.value.movieName || null,
@@ -43,8 +41,6 @@ export class PlanMovieComponent implements OnInit {
         })
         .subscribe();
       console.log(this.form);
-    } else {
-      this.errorMessage = true;
     }
   }
 
@@ -64,7 +60,7 @@ export class PlanMovieComponent implements OnInit {
           Validators.minLength(3),
           Validators.maxLength(20),
         ],
-        asyncValidators: [TakenName(this.api)],
+        asyncValidators: [takenName(this.api)],
         updateOn: 'blur',
       }),
       movieType: this.fb.control('Movie'),

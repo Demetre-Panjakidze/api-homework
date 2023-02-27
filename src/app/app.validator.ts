@@ -18,7 +18,7 @@ export function dateValidator(): ValidatorFn {
   };
 }
 
-export function TakenName(service: MovieApiService): AsyncValidatorFn {
+export function takenName(service: MovieApiService): AsyncValidatorFn {
   return (
     control: AbstractControl
   ): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
